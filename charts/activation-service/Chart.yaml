@@ -1,0 +1,17 @@
+apiVersion: v1
+name: activation-service
+version: 0.0.1
+appVersion: 0.1.0
+home: https://github.com/i4trust/activation-service
+description: A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry
+icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+keywords:
+- i4Trust
+- experimentation framework
+- proof of concept
+sources:
+- https://github.com/i4trust/activation-service
+maintainers:
+- name: dwendland
+  email: dennis.wendland@fiware.org
+  
