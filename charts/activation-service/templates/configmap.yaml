@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "activation-service.fullname" . }}
+  labels:
+    {{- include "activation-service.labels" . | nindent 4 }}
+data:
+  as.yml: |-
+    {{- with .Values.config }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
