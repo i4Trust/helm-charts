@@ -127,6 +127,11 @@ ingress:
       # hosts:
         # - activation-service.fiware.org
 
+## Enable debugging output
+debug:
+  enabled: false
+  output: "as:*"
+      
 ## Activation Service configuration (inserted at config/as.yml)
 config:
   # Client configuration
