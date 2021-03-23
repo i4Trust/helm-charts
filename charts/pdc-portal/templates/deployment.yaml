@@ -38,6 +38,11 @@ spec:
             - name: http
               containerPort: {{ .Values.config.express.port }}
               protocol: TCP
+          {{- if .Values.debug.enabled }}
+          env:
+            - name: DEBUG
+              value: {{ .Values.debug.output | quote }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /health

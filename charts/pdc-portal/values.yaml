@@ -127,6 +127,11 @@ ingress:
       # hosts:
         # - pdc-portal.fiware.org
 
+## Enable debugging output        
+debug:
+  enabled: false
+  output: "portal:*"
+      
 ## PDC Portal configuration
 config:
   # Title of application
