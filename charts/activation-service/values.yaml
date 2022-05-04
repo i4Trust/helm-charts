@@ -131,16 +131,19 @@ ingress:
 debug:
   enabled: false
   output: "as:*"
-      
+
+# -- Use values from existing secret as ENVs
+#existingSecretEnvs: ""
+
 ## Activation Service configuration (inserted at config/as.yml)
 config:
   # Client configuration
   client:
-    # Client ID
+    # -- Client ID
     id: "EU.EORI.NLPACKETDEL"
-    # Client key (PEM private key)
+    # -- Client key (PEM private key)
     key: <pdc-private-key>
-    # Client certificate (PEM certificate chain)
+    # -- Client certificate (PEM certificate chain)
     crt: <pdc-certs>
 
   # Configuration of express web server
