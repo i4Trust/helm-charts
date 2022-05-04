@@ -2,9 +2,9 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-## -- option to override the name config in the _helpers.tpl for the whole chart
+# -- option to override the name config in the _helpers.tpl for the whole chart
 nameOverride: ""
-## -- option to override the fullname config in the _helpers.tpl for the whole chart
+# -- option to override the fullname config in the _helpers.tpl for the whole chart
 fullnameOverride: ""
 
 ## configuration for the k8s service to access the activation service
@@ -44,7 +44,7 @@ deployment:
     # ref: https://hub.docker.com/r/i4trust/pdc-portal
     repository: i4trust/pdc-portal
     # -- tag of the image to be used
-    tag: v0.1.0
+    tag: v0.2.0
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
@@ -84,7 +84,7 @@ deployment:
 
 ## pod autoscaling configuration, use for automatic scaling of the pods
 autoscaling:
-  #  -- should autoscaling be enabled for the activation service
+  # -- should autoscaling be enabled for the activation service
   enabled: false
   # -- minimum number of running pods
   minReplicas: 1
@@ -95,7 +95,7 @@ autoscaling:
 
 ## openshift specific route definition. Will not work on plain k8s
 route:
-  ## -- should the deployment create openshift routes
+  # -- should the deployment create openshift routes
   enabled: false
   # -- annotations to be added to the route
   annotations: {}
@@ -131,36 +131,39 @@ ingress:
 debug:
   enabled: false
   output: "portal:*"
-      
+
+# -- Use values from existing secret as ENVs
+#existingSecretEnvs: ""
+
 ## PDC Portal configuration
 config:
-  # Title of application
+  # -- Title of application
   title: "Packet Delivery Portal"
   # Client configuration
   client:
-    # Client ID
+    # -- Client ID
     id: "EU.EORI.NLPACKETDEL"
-    # Client key (PEM private key)
+    # -- Client key (PEM private key)
     key: <pdc-private-key>
-    # Client certificate (PEM certificate chain)
+    # -- Client certificate (PEM certificate chain)
     crt: <pdc-certs>
   # Configuration for external access
   external:
-    # Host (Hostname for external access)
+    # -- Host (Hostname for external access)
     host: http://localhost
   # OIDC configuration
   oidc:
-    # Path for OIDC redirect callback
+    # -- Path for OIDC redirect callback
     redirect_path: "/openid_connect1.0/return"
-    # ACR values
+    # -- ACR values
     acr: "urn:http://eidas.europa.eu/LoA/NotNotified/high"
   # Context Broker configuration
   cb:
-    # Endpoint of (API-Umbrella protected) NGSI-LD API
+    # -- Endpoint of (API-Umbrella protected) NGSI-LD API
     endpoint: "https://localhost/ngsi-ld/v1"
   # Configuration of express web server
   express:
-    # Port (Internal port of the express web server)
+    # -- Port (Internal port of the express web server)
     port: 7000
   # IDP configuration for login
   idp:

@@ -43,6 +43,11 @@ spec:
             - name: DEBUG
               value: {{ .Values.debug.output | quote }}
           {{- end }}
+          {{- if .Values.existingSecretEnvs }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.existingSecretEnvs | quote }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /health

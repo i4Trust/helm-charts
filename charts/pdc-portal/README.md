@@ -1,6 +1,6 @@
 # pdc-portal
 
-![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![AppVersion: 0.2.0](https://img.shields.io/badge/AppVersion-0.2.0-informational?style=flat-square)
 
 A Helm chart for running the Packet Delivery Portal application on kubernetes.
 
@@ -24,23 +24,16 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
-| config.cb.endpoint | string | `"https://localhost/ngsi-ld/v1"` |  |
-| config.client.crt | string | `"<pdc-certs>"` |  |
-| config.client.id | string | `"EU.EORI.NLPACKETDEL"` |  |
-| config.client.key | string | `"<pdc-private-key>"` |  |
-| config.express.port | int | `7000` |  |
-| config.external.host | string | `"http://localhost"` |  |
-| config.idp."EU.EORI.NLHAPPYPETS".authorize_endpoint | string | `"https://idp.happypets.com/authorize"` |  |
-| config.idp."EU.EORI.NLHAPPYPETS".id | string | `"EU.EORI.NLHAPPYPETS"` |  |
-| config.idp."EU.EORI.NLHAPPYPETS".token_endpoint | string | `"https://idp.happypets.com/token"` |  |
-| config.idp."EU.EORI.NLHAPPYPETS".url | string | `"https://idp.happypets.com"` |  |
-| config.idp."EU.EORI.NLNOCHEAPER".authorize_endpoint | string | `"https://idp.nocheaper.com/authorize"` |  |
-| config.idp."EU.EORI.NLNOCHEAPER".id | string | `"EU.EORI.NLNOCHEAPER"` |  |
-| config.idp."EU.EORI.NLNOCHEAPER".token_endpoint | string | `"https://idp.nocheaper.com/token"` |  |
-| config.idp."EU.EORI.NLNOCHEAPER".url | string | `"https://idp.nocheaper.com"` |  |
-| config.oidc.acr | string | `"urn:http://eidas.europa.eu/LoA/NotNotified/high"` |  |
-| config.oidc.redirect_path | string | `"/openid_connect1.0/return"` |  |
-| config.title | string | `"Packet Delivery Portal"` |  |
+| config | object | `{"cb":{"endpoint":"https://localhost/ngsi-ld/v1"},"client":{"crt":"<pdc-certs>","id":"EU.EORI.NLPACKETDEL","key":"<pdc-private-key>"},"express":{"port":7000},"external":{"host":"http://localhost"},"idp":{"EU.EORI.NLHAPPYPETS":{"authorize_endpoint":"https://idp.happypets.com/authorize","id":"EU.EORI.NLHAPPYPETS","token_endpoint":"https://idp.happypets.com/token","url":"https://idp.happypets.com"},"EU.EORI.NLNOCHEAPER":{"authorize_endpoint":"https://idp.nocheaper.com/authorize","id":"EU.EORI.NLNOCHEAPER","token_endpoint":"https://idp.nocheaper.com/token","url":"https://idp.nocheaper.com"}},"oidc":{"acr":"urn:http://eidas.europa.eu/LoA/NotNotified/high","redirect_path":"/openid_connect1.0/return"},"title":"Packet Delivery Portal"}` | Use values from existing secret as ENVs |
+| config.cb.endpoint | string | `"https://localhost/ngsi-ld/v1"` | Endpoint of (API-Umbrella protected) NGSI-LD API |
+| config.client.crt | string | `"<pdc-certs>"` | Client certificate (PEM certificate chain) |
+| config.client.id | string | `"EU.EORI.NLPACKETDEL"` | Client ID |
+| config.client.key | string | `"<pdc-private-key>"` | Client key (PEM private key) |
+| config.express.port | int | `7000` | Port (Internal port of the express web server) |
+| config.external.host | string | `"http://localhost"` | Host (Hostname for external access) |
+| config.oidc.acr | string | `"urn:http://eidas.europa.eu/LoA/NotNotified/high"` | ACR values |
+| config.oidc.redirect_path | string | `"/openid_connect1.0/return"` | Path for OIDC redirect callback |
+| config.title | string | `"Packet Delivery Portal"` | Title of application |
 | debug.enabled | bool | `false` |  |
 | debug.output | string | `"portal:*"` |  |
 | deployment.additionalAnnotations | object | `{}` | additional annotations for the deployment, if required |
@@ -48,7 +41,7 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"i4trust/pdc-portal"` | image name ref: https://hub.docker.com/r/i4trust/pdc-portal |
-| deployment.image.tag | string | `"v0.1.0"` | tag of the image to be used |
+| deployment.image.tag | string | `"v0.2.0"` | tag of the image to be used |
 | deployment.livenessProbe.initialDelaySeconds | int | `20` |  |
 | deployment.livenessProbe.periodSeconds | int | `10` |  |
 | deployment.livenessProbe.successThreshold | int | `1` |  |
@@ -65,14 +58,14 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | deployment.updateStrategy.rollingUpdate.maxSurge | int | `1` | number of pods that can be created above the desired amount while updating |
 | deployment.updateStrategy.rollingUpdate.maxUnavailable | int | `0` | number of pods that can be unavailable while updating |
 | deployment.updateStrategy.type | string | `"RollingUpdate"` | type of the update |
-| fullnameOverride | string | `""` |  |
+| fullnameOverride | string | `""` | option to override the fullname config in the _helpers.tpl for the whole chart |
 | ingress.annotations | object | `{}` | annotations to be added to the ingress |
 | ingress.enabled | bool | `false` | should there be an ingress to connect the activation service with the public internet |
 | ingress.hosts | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
-| nameOverride | string | `""` |  |
+| nameOverride | string | `""` | option to override the name config in the _helpers.tpl for the whole chart |
 | route.annotations | object | `{}` | annotations to be added to the route |
-| route.enabled | bool | `false` |  |
+| route.enabled | bool | `false` | should the deployment create openshift routes |
 | route.tls | object | `{}` | host to be used host: localhost -- tls configuration for the route |
 | service.annotations | object | `{}` | addtional annotations, if required |
 | service.port | int | `80` | port to be used by the service |
