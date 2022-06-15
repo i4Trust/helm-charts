@@ -3,6 +3,27 @@ entries:
   activation-service:
   - apiVersion: v1
     appVersion: 0.2.0
+    created: "2022-06-15T07:22:23.474059919Z"
+    description: A Helm chart for running the i4Trust activation service for creating
+      policies at an iSHARE authorisation registry
+    digest: 7db7ae8853708e5665849c7b6b722689dba0380c2477147f28a0200647a8a8bd
+    home: https://github.com/i4trust/activation-service
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: activation-service
+    sources:
+    - https://github.com/i4trust/activation-service
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/activation-service-0.3.0/activation-service-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v1
+    appVersion: 0.2.0
     created: "2022-05-04T11:00:51.831115484Z"
     description: A Helm chart for running the i4Trust activation service for creating
       policies at an iSHARE authorisation registry
@@ -86,6 +107,27 @@ entries:
     - https://github.com/i4Trust/helm-charts/releases/download/activation-service-0.0.1/activation-service-0.0.1.tgz
     version: 0.0.1
   pdc-portal:
+  - apiVersion: v1
+    appVersion: 0.2.0
+    created: "2022-06-15T07:22:23.70753534Z"
+    description: A Helm chart for running the Packet Delivery Portal application on
+      kubernetes.
+    digest: 79bcd3b72b5f891515ef99d0347e7a86ceda9c9975167674ccdd95e4ecd33366
+    home: https://github.com/i4trust/pdc-portal
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: pdc-portal
+    sources:
+    - https://github.com/i4trust/pdc-portal
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/pdc-portal-0.3.0/pdc-portal-0.3.0.tgz
+    version: 0.3.0
   - apiVersion: v1
     appVersion: 0.2.0
     created: "2022-05-04T11:54:00.650792874Z"
