@@ -104,7 +104,13 @@ route:
   # -- tls configuration for the route
   tls: {}
   # termination: edge
-
+  # -- configuration for certificate generation.
+  # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+  certificate: { }
+  #   issuer:
+  #     kind: ClusterIssuer
+  #     name: letsencrypt-aws-prod
+  
 ## ingress configuration
 ingress:
   # -- should there be an ingress to connect the activation service with the public internet

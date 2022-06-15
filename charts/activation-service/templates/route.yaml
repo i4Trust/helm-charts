@@ -6,14 +6,19 @@ metadata:
   name: {{ include "activation-service.fullname" . }}
   labels:
     {{ include "activation-service.labels" . | nindent 4 }}
-  {{- if .Values.route.annotations }}
+  {{- if or .Values.route.annotations .Values.route.certificate }}
   annotations:
+    {{- if .Values.route.certificate }}
+    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "activation-service.fullname" . }}-tls-sec
+    {{- end }}
     {{- with .Values.route.annotations }}
       {{- toYaml . | nindent 4 }}
       {{- end }}
   {{- end }}
 spec:
-  host: {{ .Values.route.host}}
+  {{- if .Values.route.host }}
+  host: {{ .Values.route.host }}
+  {{- end }}
   to:
     kind: Service
     name: {{ $fullName }}
