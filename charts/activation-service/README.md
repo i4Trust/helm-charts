@@ -24,10 +24,16 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
-| config | object | `{"ar":{"delegation":"https://ar.packetdelivery.net/delegation","id":"EU.EORI.NLPACKETDEL","policy":"https://ar.packetdelivery.net/policy","rejectUnauthorized":false,"token":"https://ar.packetdelivery.net/connect/token"},"client":{"crt":"<pdc-certs>","id":"EU.EORI.NLPACKETDEL","key":"<pdc-private-key>"},"db":{"source":":memory:"},"express":{"port":7000}}` | Use values from existing secret as ENVs |
+| config.ar.delegation | string | `"https://ar.packetdelivery.net/delegation"` |  |
+| config.ar.id | string | `"EU.EORI.NLPACKETDEL"` |  |
+| config.ar.policy | string | `"https://ar.packetdelivery.net/policy"` |  |
+| config.ar.rejectUnauthorized | bool | `false` |  |
+| config.ar.token | string | `"https://ar.packetdelivery.net/connect/token"` |  |
 | config.client.crt | string | `"<pdc-certs>"` | Client certificate (PEM certificate chain) |
 | config.client.id | string | `"EU.EORI.NLPACKETDEL"` | Client ID |
 | config.client.key | string | `"<pdc-private-key>"` | Client key (PEM private key) |
+| config.db.source | string | `":memory:"` |  |
+| config.express.port | int | `7000` |  |
 | debug.enabled | bool | `false` |  |
 | debug.output | string | `"as:*"` |  |
 | deployment.additionalAnnotations | object | `{}` | additional annotations for the deployment, if required |
