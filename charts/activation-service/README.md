@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![AppVersion: 0.2.0](https://img.shields.io/badge/AppVersion-0.2.0-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 1.1.1](https://img.shields.io/badge/AppVersion-1.1.1-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry
 
@@ -35,7 +35,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"i4trust/activation-service"` | image name ref: https://hub.docker.com/r/i4trust/activation-service |
-| deployment.image.tag | string | `"v0.2.0"` | tag of the image to be used |
+| deployment.image.tag | string | `"1.1.1"` | tag of the image to be used |
 | deployment.livenessProbe.initialDelaySeconds | int | `20` |  |
 | deployment.livenessProbe.periodSeconds | int | `10` |  |
 | deployment.livenessProbe.successThreshold | int | `1` |  |
@@ -59,6 +59,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | route.annotations | object | `{}` | annotations to be added to the route |
+| route.certificate | object | `{}` |  |
 | route.enabled | bool | `false` |  |
 | route.tls | object | `{}` | host to be used host: localhost -- tls configuration for the route |
 | service.annotations | object | `{}` | addtional annotations, if required |
