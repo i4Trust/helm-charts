@@ -44,7 +44,7 @@ deployment:
     # ref: https://hub.docker.com/r/i4trust/activation-service
     repository: i4trust/activation-service
     # -- tag of the image to be used
-    tag: v0.2.0
+    tag: 1.1.1
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
@@ -138,10 +138,10 @@ debug:
   enabled: false
   output: "as:*"
 
-# -- Use values from existing secret as ENVs
+# Use values from existing secret as ENVs
 #existingSecretEnvs: ""
 
-## Activation Service configuration (inserted at config/as.yml)
+# Activation Service configuration (inserted at config/as.yml)
 config:
   # Client configuration
   client:

@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![AppVersion: 0.2.0](https://img.shields.io/badge/AppVersion-0.2.0-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 1.1.1](https://img.shields.io/badge/AppVersion-1.1.1-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry
 
@@ -24,10 +24,16 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
-| config | object | `{"ar":{"delegation":"https://ar.packetdelivery.net/delegation","id":"EU.EORI.NLPACKETDEL","policy":"https://ar.packetdelivery.net/policy","rejectUnauthorized":false,"token":"https://ar.packetdelivery.net/connect/token"},"client":{"crt":"<pdc-certs>","id":"EU.EORI.NLPACKETDEL","key":"<pdc-private-key>"},"db":{"source":":memory:"},"express":{"port":7000}}` | Use values from existing secret as ENVs |
+| config.ar.delegation | string | `"https://ar.packetdelivery.net/delegation"` |  |
+| config.ar.id | string | `"EU.EORI.NLPACKETDEL"` |  |
+| config.ar.policy | string | `"https://ar.packetdelivery.net/policy"` |  |
+| config.ar.rejectUnauthorized | bool | `false` |  |
+| config.ar.token | string | `"https://ar.packetdelivery.net/connect/token"` |  |
 | config.client.crt | string | `"<pdc-certs>"` | Client certificate (PEM certificate chain) |
 | config.client.id | string | `"EU.EORI.NLPACKETDEL"` | Client ID |
 | config.client.key | string | `"<pdc-private-key>"` | Client key (PEM private key) |
+| config.db.source | string | `":memory:"` |  |
+| config.express.port | int | `7000` |  |
 | debug.enabled | bool | `false` |  |
 | debug.output | string | `"as:*"` |  |
 | deployment.additionalAnnotations | object | `{}` | additional annotations for the deployment, if required |
@@ -35,7 +41,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"i4trust/activation-service"` | image name ref: https://hub.docker.com/r/i4trust/activation-service |
-| deployment.image.tag | string | `"v0.2.0"` | tag of the image to be used |
+| deployment.image.tag | string | `"1.1.1"` | tag of the image to be used |
 | deployment.livenessProbe.initialDelaySeconds | int | `20` |  |
 | deployment.livenessProbe.periodSeconds | int | `10` |  |
 | deployment.livenessProbe.successThreshold | int | `1` |  |
@@ -59,6 +65,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | route.annotations | object | `{}` | annotations to be added to the route |
+| route.certificate | object | `{}` |  |
 | route.enabled | bool | `false` |  |
 | route.tls | object | `{}` | host to be used host: localhost -- tls configuration for the route |
 | service.annotations | object | `{}` | addtional annotations, if required |

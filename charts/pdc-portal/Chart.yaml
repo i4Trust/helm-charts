@@ -1,7 +1,7 @@
 apiVersion: v1
 name: pdc-portal
-version: 0.3.1
-appVersion: 0.2.0
+version: 2.0.0
+appVersion: 2.0.0
 home: https://github.com/i4trust/pdc-portal
 description: A Helm chart for running the Packet Delivery Portal application on kubernetes.
 icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg

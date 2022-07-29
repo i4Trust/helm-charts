@@ -1,6 +1,6 @@
 # pdc-portal
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![AppVersion: 0.2.0](https://img.shields.io/badge/AppVersion-0.2.0-informational?style=flat-square)
+![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![AppVersion: 2.0.0](https://img.shields.io/badge/AppVersion-2.0.0-informational?style=flat-square)
 
 A Helm chart for running the Packet Delivery Portal application on kubernetes.
 
@@ -24,13 +24,22 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
-| config | object | `{"cb":{"endpoint":"https://localhost/ngsi-ld/v1"},"client":{"crt":"<pdc-certs>","id":"EU.EORI.NLPACKETDEL","key":"<pdc-private-key>"},"express":{"port":7000},"external":{"host":"http://localhost"},"idp":{"EU.EORI.NLHAPPYPETS":{"authorize_endpoint":"https://idp.happypets.com/authorize","id":"EU.EORI.NLHAPPYPETS","token_endpoint":"https://idp.happypets.com/token","url":"https://idp.happypets.com"},"EU.EORI.NLNOCHEAPER":{"authorize_endpoint":"https://idp.nocheaper.com/authorize","id":"EU.EORI.NLNOCHEAPER","token_endpoint":"https://idp.nocheaper.com/token","url":"https://idp.nocheaper.com"}},"oidc":{"acr":"urn:http://eidas.europa.eu/LoA/NotNotified/high","redirect_path":"/openid_connect1.0/return"},"title":"Packet Delivery Portal"}` | Use values from existing secret as ENVs |
 | config.cb.endpoint | string | `"https://localhost/ngsi-ld/v1"` | Endpoint of (API-Umbrella protected) NGSI-LD API |
 | config.client.crt | string | `"<pdc-certs>"` | Client certificate (PEM certificate chain) |
 | config.client.id | string | `"EU.EORI.NLPACKETDEL"` | Client ID |
 | config.client.key | string | `"<pdc-private-key>"` | Client key (PEM private key) |
 | config.express.port | int | `7000` | Port (Internal port of the express web server) |
 | config.external.host | string | `"http://localhost"` | Host (Hostname for external access) |
+| config.idp[0].authorize_endpoint | string | `"https://idp.happypets.com/authorize"` |  |
+| config.idp[0].id | string | `"EU.EORI.NLHAPPYPETS"` |  |
+| config.idp[0].name | string | `"Happy Pets Inc."` |  |
+| config.idp[0].token_endpoint | string | `"https://idp.happypets.com/token"` |  |
+| config.idp[0].url | string | `"https://idp.happypets.com"` |  |
+| config.idp[1].authorize_endpoint | string | `"https://idp.nocheaper.com/authorize"` |  |
+| config.idp[1].id | string | `"EU.EORI.NLNOCHEAPER"` |  |
+| config.idp[1].name | string | `"No Cheaper Inc."` |  |
+| config.idp[1].token_endpoint | string | `"https://idp.nocheaper.com/token"` |  |
+| config.idp[1].url | string | `"https://idp.nocheaper.com"` |  |
 | config.oidc.acr | string | `"urn:http://eidas.europa.eu/LoA/NotNotified/high"` | ACR values |
 | config.oidc.redirect_path | string | `"/openid_connect1.0/return"` | Path for OIDC redirect callback |
 | config.title | string | `"Packet Delivery Portal"` | Title of application |
@@ -41,7 +50,7 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"i4trust/pdc-portal"` | image name ref: https://hub.docker.com/r/i4trust/pdc-portal |
-| deployment.image.tag | string | `"v0.2.0"` | tag of the image to be used |
+| deployment.image.tag | string | `"2.0.0"` | tag of the image to be used |
 | deployment.livenessProbe.initialDelaySeconds | int | `20` |  |
 | deployment.livenessProbe.periodSeconds | int | `10` |  |
 | deployment.livenessProbe.successThreshold | int | `1` |  |
@@ -65,6 +74,7 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` | option to override the name config in the _helpers.tpl for the whole chart |
 | route.annotations | object | `{}` | annotations to be added to the route |
+| route.certificate | object | `{}` |  |
 | route.enabled | bool | `false` | should the deployment create openshift routes |
 | route.tls | object | `{}` | host to be used host: localhost -- tls configuration for the route |
 | service.annotations | object | `{}` | addtional annotations, if required |
