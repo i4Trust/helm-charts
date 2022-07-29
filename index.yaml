@@ -2,6 +2,27 @@ apiVersion: v1
 entries:
   activation-service:
   - apiVersion: v1
+    appVersion: 1.1.1
+    created: "2022-07-29T07:34:50.723780385Z"
+    description: A Helm chart for running the i4Trust activation service for creating
+      policies at an iSHARE authorisation registry
+    digest: a3275e269c94a07ba2fda43441612801d1fec51c7403cfb5b924519be726ca81
+    home: https://github.com/i4trust/activation-service
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: activation-service
+    sources:
+    - https://github.com/i4trust/activation-service
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/activation-service-1.0.0/activation-service-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v1
     appVersion: 0.2.0
     created: "2022-06-15T07:22:23.474059919Z"
     description: A Helm chart for running the i4Trust activation service for creating
@@ -107,6 +128,27 @@ entries:
     - https://github.com/i4Trust/helm-charts/releases/download/activation-service-0.0.1/activation-service-0.0.1.tgz
     version: 0.0.1
   pdc-portal:
+  - apiVersion: v1
+    appVersion: 2.0.0
+    created: "2022-07-29T07:34:50.851663243Z"
+    description: A Helm chart for running the Packet Delivery Portal application on
+      kubernetes.
+    digest: 77231df2efd469fcdb5b9066b67ae248f2094f0d4d9c0e91503520b1777c0e37
+    home: https://github.com/i4trust/pdc-portal
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: pdc-portal
+    sources:
+    - https://github.com/i4trust/pdc-portal
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/pdc-portal-2.0.0/pdc-portal-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v1
     appVersion: 0.2.0
     created: "2022-06-15T09:03:02.276869802Z"
