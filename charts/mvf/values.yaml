@@ -1,0 +1,191 @@
+# Default values for activation-service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## -- option to override the name config in the _helpers.tpl for the whole chart
+nameOverride: ""
+## -- option to override the fullname config in the _helpers.tpl for the whole chart
+fullnameOverride: ""
+
+# -- if a specific service account should be used, it can be configured here
+# ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+serviceAccount:
+  # -- specifies if the account should be created
+  create: false
+
+## deployment specific configuration
+deployment:
+  # -- initial number of target replications, can be different if autoscaling is enabled
+  replicaCount: 1
+  # -- number of old replicas to be retained
+  revisionHistoryLimit: 3
+  ## configuration of the update strategy
+  updateStrategy:
+    # -- type of the update
+    type: RollingUpdate
+    # -- new pods will be added gradually
+    rollingUpdate:
+      # -- number of pods that can be created above the desired amount while updating
+      maxSurge: 1
+      # -- number of pods that can be unavailable while updating
+      maxUnavailable: 0
+  ## configuration of the image to be used
+  image:
+    # -- image name
+    # ref: https://hub.docker.com/r/i4trust/activation-service
+    repository: wistefan/mvf
+    # -- tag of the image to be used
+    tag: latest
+    # -- specification of the image pull policy
+    pullPolicy: IfNotPresent
+  # -- additional labels for the deployment, if required
+  additionalLabels: {}
+  # -- additional annotations for the deployment, if required
+  additionalAnnotations: {}
+  ## Activation Service resource requests and limits, we leave the default empty to make that a concious choice by the user.
+  ## for the autoscaling to make sense, you should configure this.
+  # resources:
+    # limits:
+      # cpu: 100m
+      # memory: 128Mi
+    # requests:
+      # cpu: 100m
+      # memory: 128Mi
+  # -- selector template
+  # ref: https://kubernetes.io/docs/user-guide/node-selection/
+  nodeSelector: {}
+  # -- tolerations template
+  # ref: ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  tolerations: []
+  # -- affinity template
+  # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+  affinity: {}
+
+# -- configuration specific to the apis to run. Be aware: ports are configurable in the chart, but not in the app yet. So dont change the defaults.
+api:
+  # -- config for the core api
+  core:
+    enabled: true
+    port: 7000
+    ## openshift specific route definition. Will not work on plain k8s
+    route:
+      ## -- should the deployment create openshift routes
+      enabled: false
+      # -- annotations to be added to the route
+      annotations: {}
+      # -- host to be used
+      # host: localhost
+      # -- tls configuration for the route
+      tls: 
+        termination: edge
+      # -- configuration for certificate generation.
+      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+      certificate: { }
+      #   issuer:
+      #     kind: ClusterIssuer
+      #     name: letsencrypt-aws-prod
+   # -- config for the auditor api
+  auditor:
+    enabled: true
+    port: 7003
+    ## openshift specific route definition. Will not work on plain k8s
+    route:
+      ## -- should the deployment create openshift routes
+      enabled: false
+      # -- annotations to be added to the route
+      annotations: {}
+      # -- host to be used
+      # host: localhost
+      # -- tls configuration for the route
+      tls: 
+        termination: edge
+      # -- configuration for certificate generation.
+      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+      certificate: { }
+      #   issuer:
+      #     kind: ClusterIssuer
+      #     name: letsencrypt-aws-prod
+   # -- config for the signatory api
+  signatory:
+    enabled: true
+    port: 7001
+    ## openshift specific route definition. Will not work on plain k8s
+    route:
+      ## -- should the deployment create openshift routes
+      enabled: false
+      # -- annotations to be added to the route
+      annotations: {}
+      # -- host to be used
+      # host: localhost
+      # -- tls configuration for the route
+      tls: 
+        termination: edge
+      # -- configuration for certificate generation.
+      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+      certificate: { }
+      #   issuer:
+      #     kind: ClusterIssuer
+      #     name: letsencrypt-aws-prod
+   # -- config for the custodian api
+  custodian:
+    enabled: true
+    port: 7002
+    ## openshift specific route definition. Will not work on plain k8s
+    route:
+      ## -- should the deployment create openshift routes
+      enabled: false
+      # -- annotations to be added to the route
+      annotations: {}
+      # -- host to be used
+      # host: localhost
+      # -- tls configuration for the route
+      tls: 
+        termination: edge
+      # -- configuration for certificate generation.
+      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+      certificate: { }
+      #   issuer:
+      #     kind: ClusterIssuer
+      #     name: letsencrypt-aws-prod
+   # -- config for the essif api
+  essif:
+    enabled: true
+    port: 7004
+    ## openshift specific route definition. Will not work on plain k8s
+    route:
+      ## -- should the deployment create openshift routes
+      enabled: false
+      # -- annotations to be added to the route
+      annotations: {}
+      # -- host to be used
+      # host: localhost
+      # -- tls configuration for the route
+      tls: 
+        termination: edge
+      # -- configuration for certificate generation.
+      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+      certificate: { }
+      #   issuer:
+      #     kind: ClusterIssuer
+      #     name: letsencrypt-aws-prod
+   # -- config for the oidc api
+  oidc:
+    enabled: true
+    port: 7010
+    ## openshift specific route definition. Will not work on plain k8s
+    route:
+      ## -- should the deployment create openshift routes
+      enabled: false
+      # -- annotations to be added to the route
+      annotations: {}
+      # -- host to be used
+      # host: localhost
+      # -- tls configuration for the route
+      tls: 
+        termination: edge
+      # -- configuration for certificate generation.
+      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+      certificate: { }
+      #   issuer:
+      #     kind: ClusterIssuer
+      #     name: letsencrypt-aws-prod
