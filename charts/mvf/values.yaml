@@ -61,6 +61,14 @@ deployment:
   # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
   affinity: {}
 
+## configuration for the k8s service to access the mvf
+service:
+  # -- service type
+  type: ClusterIP
+  # -- additional annotations, if required
+  annotations: {}
+
+
 # -- configuration specific to the apis to run. Be aware: ports are configurable in the chart, but not in the app yet. So dont change the defaults.
 api:
   # -- config for the core api
