@@ -172,6 +172,24 @@ entries:
   mvf:
   - apiVersion: v1
     appVersion: 1.1.1
+    created: "2022-12-06T13:57:04.50692947Z"
+    description: A Helm chart for running the i4Trust DSBA mvf.
+    digest: 153709bc1a9cf8bdc96a5d626e29086e9cd5ce626a8e351d92c2d3ec6d90c2bd
+    home: https://github.com/hesusruiz/mvf
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: mvf
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/mvf-1.1.1/mvf-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v1
+    appVersion: 1.1.1
     created: "2022-12-06T13:45:31.723080543Z"
     description: A Helm chart for running the i4Trust DSBA mvf.
     digest: 3963188be5e5e07b16c4339eaca270d425d212877ff1c9d3018366e4f27a1c94
