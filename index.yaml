@@ -396,6 +396,24 @@ entries:
   vcbackend:
   - apiVersion: v1
     appVersion: 0.0.1
+    created: "2022-12-07T14:31:59.676512235Z"
+    description: A Helm chart for running the i4Trust DSBA vcbackend.
+    digest: e12fdcaf32fcd40ca04a1d3f10bbfac6940ea1692204397e8653e8400c007bae
+    home: https://github.com/hesusruiz/vcbackend
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcbackend
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcbackend-0.0.2/vcbackend-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v1
+    appVersion: 0.0.1
     created: "2022-12-07T14:16:49.962162469Z"
     description: A Helm chart for running the i4Trust DSBA vcbackend.
     digest: 238e987529dd84408fa2e689ea7eb66c2dd7e45bdb2a1bd4b225063fbf2fa188
@@ -413,6 +431,24 @@ entries:
     - https://github.com/i4Trust/helm-charts/releases/download/vcbackend-0.0.1/vcbackend-0.0.1.tgz
     version: 0.0.1
   vcwaltid:
+  - apiVersion: v1
+    appVersion: 0.0.1
+    created: "2022-12-07T14:31:59.837659082Z"
+    description: A Helm chart for running the i4Trust DSBA vcwaltid.
+    digest: 7d2cf4031a4cf875a2f2129c733e09c749626a063fad8da1dab874e76005c807
+    home: https://github.com/hesusruiz/vcwaltid
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcwaltid
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcwaltid-0.0.2/vcwaltid-0.0.2.tgz
+    version: 0.0.2
   - apiVersion: v1
     appVersion: 0.0.1
     created: "2022-12-07T14:16:50.255746509Z"
