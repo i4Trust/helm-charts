@@ -89,132 +89,19 @@ service:
   # -- port to be set for the internal service
   port: 3000
 
-
-# -- configuration specific to the apis to run. Be aware: ports are configurable in the chart, but not in the app yet. So dont change the defaults.
-api:
-  # -- config for the core api
-  core:
-    enabled: true
-    port: 7000
-    ## openshift specific route definition. Will not work on plain k8s
-    route:
-      ## -- should the deployment create openshift routes
-      enabled: false
-      # -- annotations to be added to the route
-      annotations: {}
-      # -- host to be used
-      # host: localhost
-      # -- tls configuration for the route
-      tls: 
-        termination: edge
-      # -- configuration for certificate generation.
-      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
-      certificate: { }
-      #   issuer:
-      #     kind: ClusterIssuer
-      #     name: letsencrypt-aws-prod
-   # -- config for the auditor api
-  auditor:
-    enabled: true
-    port: 7003
-    ## openshift specific route definition. Will not work on plain k8s
-    route:
-      ## -- should the deployment create openshift routes
-      enabled: false
-      # -- annotations to be added to the route
-      annotations: {}
-      # -- host to be used
-      # host: localhost
-      # -- tls configuration for the route
-      tls: 
-        termination: edge
-      # -- configuration for certificate generation.
-      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
-      certificate: { }
-      #   issuer:
-      #     kind: ClusterIssuer
-      #     name: letsencrypt-aws-prod
-   # -- config for the signatory api
-  signatory:
-    enabled: true
-    port: 7001
-    ## openshift specific route definition. Will not work on plain k8s
-    route:
-      ## -- should the deployment create openshift routes
-      enabled: false
-      # -- annotations to be added to the route
-      annotations: {}
-      # -- host to be used
-      # host: localhost
-      # -- tls configuration for the route
-      tls: 
-        termination: edge
-      # -- configuration for certificate generation.
-      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
-      certificate: { }
-      #   issuer:
-      #     kind: ClusterIssuer
-      #     name: letsencrypt-aws-prod
-   # -- config for the custodian api
-  custodian:
-    enabled: true
-    port: 7002
-    ## openshift specific route definition. Will not work on plain k8s
-    route:
-      ## -- should the deployment create openshift routes
-      enabled: false
-      # -- annotations to be added to the route
-      annotations: {}
-      # -- host to be used
-      # host: localhost
-      # -- tls configuration for the route
-      tls: 
-        termination: edge
-      # -- configuration for certificate generation.
-      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
-      certificate: { }
-      #   issuer:
-      #     kind: ClusterIssuer
-      #     name: letsencrypt-aws-prod
-   # -- config for the essif api
-  essif:
-    enabled: true
-    port: 7004
-    ## openshift specific route definition. Will not work on plain k8s
-    route:
-      ## -- should the deployment create openshift routes
-      enabled: false
-      # -- annotations to be added to the route
-      annotations: {}
-      # -- host to be used
-      # host: localhost
-      # -- tls configuration for the route
-      tls: 
-        termination: edge
-      # -- configuration for certificate generation.
-      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
-      certificate: { }
-      #   issuer:
-      #     kind: ClusterIssuer
-      #     name: letsencrypt-aws-prod
-   # -- config for the oidc api
-  oidc:
-    enabled: true
-    port: 7010
-    ## openshift specific route definition. Will not work on plain k8s
-    route:
-      ## -- should the deployment create openshift routes
-      enabled: false
-      # -- annotations to be added to the route
-      annotations: {}
-      # -- host to be used
-      # host: localhost
-      # -- tls configuration for the route
-      tls: 
-        termination: edge
-      # -- configuration for certificate generation.
-      # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
-      certificate: { }
-      #   issuer:
-      #     kind: ClusterIssuer
-      #     name: letsencrypt-aws-prod
+route:
+  ## -- should the deployment create openshift routes
+  enabled: false
+  # -- annotations to be added to the route
+  annotations: {}
+  # -- host to be used
+  # host: localhost
+  # -- tls configuration for the route
+  tls: 
+    termination: edge
+  # -- configuration for certificate generation.
+  # -- see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md
+  certificate: { }
+  #   issuer:
+  #     kind: ClusterIssuer
+  #     name: letsencrypt-aws-prod
