@@ -393,4 +393,42 @@ entries:
     urls:
     - https://github.com/i4Trust/helm-charts/releases/download/pdc-portal-0.0.4/pdc-portal-0.0.4.tgz
     version: 0.0.4
+  vcbackend:
+  - apiVersion: v1
+    appVersion: 0.0.1
+    created: "2022-12-07T14:16:49.962162469Z"
+    description: A Helm chart for running the i4Trust DSBA vcbackend.
+    digest: 238e987529dd84408fa2e689ea7eb66c2dd7e45bdb2a1bd4b225063fbf2fa188
+    home: https://github.com/hesusruiz/vcbackend
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcbackend
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcbackend-0.0.1/vcbackend-0.0.1.tgz
+    version: 0.0.1
+  vcwaltid:
+  - apiVersion: v1
+    appVersion: 0.0.1
+    created: "2022-12-07T14:16:50.255746509Z"
+    description: A Helm chart for running the i4Trust DSBA vcwaltid.
+    digest: 7bd01441940f7212e2007af38864ce2c41094126a9e13aaa7e5707cda89b95b3
+    home: https://github.com/hesusruiz/vcwaltid
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcwaltid
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcwaltid-0.0.1/vcwaltid-0.0.1.tgz
+    version: 0.0.1
 generated: "2021-03-12T10:33:02.24773049Z"
