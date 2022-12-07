@@ -33,11 +33,30 @@ deployment:
   image:
     # -- image name
     # ref: https://hub.docker.com/r/i4trust/activation-service
-    repository: wistefan/mvf
+    repository: wistefan/vcbackend
     # -- tag of the image to be used
-    tag: latest
+    tag: 0.0.1
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
+  # -- port to run the container at
+  port: 3000
+  # -- logLevel of the application
+  logLevel: DEBUG
+  # -- url of the resource to request 
+  protectedResource:
+  # -- urls of vcwalt to connect to
+  walt:
+    # -- address of the core api
+    coreUrl: https://core.walt
+    # -- address of the signatory api
+    signatoryUrl: https://signatory.walt
+    # -- address of the auditor api
+    auditorUrl: https://auditor.walt
+    # -- address of the custodian api
+    custodianUrl: https://custodian.walt
+    # -- address of the essif api
+    essifUrl: https://essif.walt
+
   # -- additional labels for the deployment, if required
   additionalLabels: {}
   # -- additional annotations for the deployment, if required
@@ -61,12 +80,14 @@ deployment:
   # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
   affinity: {}
 
-## configuration for the k8s service to access the mvf
+## configuration for the k8s service to access the vcwaltid
 service:
   # -- service type
   type: ClusterIP
   # -- additional annotations, if required
   annotations: {}
+  # -- port to be set for the internal service
+  port: 3000
 
 
 # -- configuration specific to the apis to run. Be aware: ports are configurable in the chart, but not in the app yet. So dont change the defaults.

@@ -1,0 +1,14 @@
+apiVersion: v1
+name: vcbackend
+version: 0.0.1
+appVersion: 0.0.1
+home: https://github.com/hesusruiz/vcbackend
+description: A Helm chart for running the i4Trust DSBA vcbackend.
+keywords:
+- i4Trust
+- experimentation framework
+- proof of concept
+- verifiable credentials
+maintainers:
+- name: wistefan
+  email: stefan.wiedemann@fiware.org
