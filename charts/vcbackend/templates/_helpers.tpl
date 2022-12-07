@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "vcwaltid.name" -}}
+{{- define "vcbackend.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "vcwaltid.fullname" -}}
+{{- define "vcbackend.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "vcwaltid.chart" -}}
+{{- define "vcbackend.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "vcwaltid.serviceAccountName" -}}
+{{- define "vcbackend.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create -}}
-    {{ default (include "vcwaltid.fullname" .) .Values.serviceAccount.name }}
+    {{ default (include "vcbackend.fullname" .) .Values.serviceAccount.name }}
 {{- else -}}
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
@@ -44,9 +44,9 @@ Create the name of the service account to use
 {{/*
 Common labels
 */}}
-{{- define "vcwaltid.labels" -}}
-app.kubernetes.io/name: {{ include "vcwaltid.name" . }}
-helm.sh/chart: {{ include "vcwaltid.chart" . }}
+{{- define "vcbackend.labels" -}}
+app.kubernetes.io/name: {{ include "vcbackend.name" . }}
+helm.sh/chart: {{ include "vcbackend.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}

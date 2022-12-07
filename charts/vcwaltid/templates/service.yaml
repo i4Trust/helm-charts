@@ -41,12 +41,6 @@ spec:
       targetPort: essif-api
       protocol: TCP
     {{- end}}
-    {{- if .Values.api.oidc.enabled }}
-    - name: http-oidc
-      port: {{ .Values.api.oidc.port }}
-      targetPort: oidc-api
-      protocol: TCP
-    {{- end}}
   selector:
     app.kubernetes.io/name: {{ include "vcwaltid.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
