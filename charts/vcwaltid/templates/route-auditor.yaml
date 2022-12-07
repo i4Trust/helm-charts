@@ -1,15 +1,15 @@
 {{- if .Values.api.auditor.route.enabled }}
-{{- $fullName := include "mvf.fullname" . -}}
+{{- $fullName := include "vcwaltid.fullname" . -}}
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ include "mvf.fullname" . }}-auditor
+  name: {{ include "vcwaltid.fullname" . }}-auditor
   labels:
-    {{ include "mvf.labels" . | nindent 4 }}
+    {{ include "vcwaltid.labels" . | nindent 4 }}
   {{- if or .Values.api.auditor.route.annotations .Values.api.auditor.route.certificate }}
   annotations:
     {{- if .Values.api.auditor.route.certificate }}
-    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "mvf.fullname" . }}-tls-sec
+    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "vcwaltid.fullname" . }}-tls-sec
     {{- end }}
     {{- with .Values.api.auditor.route.annotations }}
       {{- toYaml . | nindent 4 }}

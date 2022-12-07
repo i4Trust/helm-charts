@@ -1,9 +1,9 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: {{ include "mvf.fullname" . }}
+  name: {{ include "vcwaltid.fullname" . }}
   labels:
-    {{ include "mvf.labels" . | nindent 4 }}
+    {{ include "vcwaltid.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   revisionHistoryLimit: {{ .Values.deployment.revisionHistoryLimit }}
@@ -13,12 +13,12 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "mvf.name" . }}
+      app.kubernetes.io/name: {{ include "vcwaltid.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        {{ include "mvf.labels" . | nindent 8 }}
+        {{ include "vcwaltid.labels" . | nindent 8 }}
         {{- with .Values.deployment.additionalLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -29,7 +29,7 @@ spec:
         {{- end }}
       {{- end }}
     spec: 
-      serviceAccountName: {{ include "mvf.serviceAccountName" . }}
+      serviceAccountName: {{ include "vcwaltid.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"

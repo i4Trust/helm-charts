@@ -61,7 +61,7 @@ deployment:
   # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
   affinity: {}
 
-## configuration for the k8s service to access the mvf
+## configuration for the k8s service to access the vcwaltid
 service:
   # -- service type
   type: ClusterIP

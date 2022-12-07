@@ -1,15 +1,15 @@
 {{- if .Values.api.custodian.route.enabled }}
-{{- $fullName := include "mvf.fullname" . -}}
+{{- $fullName := include "vcwaltid.fullname" . -}}
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ include "mvf.fullname" . }}-custodian
+  name: {{ include "vcwaltid.fullname" . }}-custodian
   labels:
-    {{ include "mvf.labels" . | nindent 4 }}
+    {{ include "vcwaltid.labels" . | nindent 4 }}
   {{- if or .Values.api.custodian.route.annotations .Values.api.custodian.route.certificate }}
   annotations:
     {{- if .Values.api.custodian.route.certificate }}
-    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "mvf.fullname" . }}-tls-sec
+    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "vcwaltid.fullname" . }}-tls-sec
     {{- end }}
     {{- with .Values.api.custodian.route.annotations }}
       {{- toYaml . | nindent 4 }}

@@ -1,15 +1,15 @@
 {{- if .Values.api.essif.route.enabled }}
-{{- $fullName := include "mvf.fullname" . -}}
+{{- $fullName := include "vcwaltid.fullname" . -}}
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ include "mvf.fullname" . }}-essif
+  name: {{ include "vcwaltid.fullname" . }}-essif
   labels:
-    {{ include "mvf.labels" . | nindent 4 }}
+    {{ include "vcwaltid.labels" . | nindent 4 }}
   {{- if or .Values.api.essif.route.annotations .Values.api.essif.route.certificate }}
   annotations:
     {{- if .Values.api.essif.route.certificate }}
-    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "mvf.fullname" . }}-tls-sec
+    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "vcwaltid.fullname" . }}-tls-sec
     {{- end }}
     {{- with .Values.api.essif.route.annotations }}
       {{- toYaml . | nindent 4 }}
