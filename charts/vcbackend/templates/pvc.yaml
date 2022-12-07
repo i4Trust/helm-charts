@@ -1,0 +1,17 @@
+{{- if .Values.deployment.sqlite }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "vcbackend.fullname" . }}
+  labels:
+    {{ include "vcbackend.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.deployment.pvc.storageClass }}
+  storageClassName: {{ .Values.deployment.pvc.storageClass }}
+  {{- end -}}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.deployment.pvc.size | quote }}
+{{- end }}

@@ -49,10 +49,19 @@ spec:
           volumeMounts:
             - mountPath: /configs/
               name: config-volume
+            {{- if .Values.deployment.sqlite }}
+            - mountPath: /db/
+              name: db-volume
+            {{- end }}
       volumes:
       - name: config-volume
         configMap:
           name: {{ include "vcbackend.fullname" . }}
+      {{- if .Values.deployment.sqlite }}
+      - name: db-volume
+        persistentVolumeClaim:
+          claimName: {{ include "vcbackend.fullname" . }}
+      {{- end }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
