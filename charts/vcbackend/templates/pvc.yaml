@@ -8,7 +8,7 @@ metadata:
 spec:
   {{- if .Values.deployment.pvc.storageClass }}
   storageClassName: {{ .Values.deployment.pvc.storageClass }}
-  {{- end -}}
+  {{- end }}
   accessModes:
     - ReadWriteOnce
   resources:
