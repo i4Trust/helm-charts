@@ -57,12 +57,6 @@ deployment:
     # -- address of the essif api
     essifUrl: https://essif.walt
 
-  # -- should sqlite be used
-  sqlite: true
-  # -- pvc to be used for the sqlite
-  pvc: 
-    size: 1Gi
-
   # -- additional labels for the deployment, if required
   additionalLabels: {}
   # -- additional annotations for the deployment, if required
@@ -111,3 +105,32 @@ route:
   #   issuer:
   #     kind: ClusterIssuer
   #     name: letsencrypt-aws-prod
+
+# -- configuration for the databse
+db:
+  # -- should a filebased db used? 
+  fileBased: true
+  # -- pvc to be used for the sqlite
+  pvc: 
+    size: 1Gi
+  # -- config for the individual components
+  store:
+    # -- database driver to be used
+    driver: sqlite3
+    connectionString: file:/db/issuer.sqlite?mode=rwc&cache=shared&_fk=1
+  issuer:
+    # -- database driver to be used
+    driver: sqlite3
+    connectionString: file:/db/issuer.sqlite?mode=rwc&cache=shared&_fk=1
+  verifier:
+    # -- database driver to be used
+    driver: sqlite3
+    connectionString: file:/db/verifier.sqlite?mode=rwc&cache=shared&_fk=1
+  verifiableregistry:
+    # -- database driver to be used
+    driver: sqlite3
+    connectionString: file:/db/verifiableregistry.sqlite?mode=rwc&cache=shared&_fk=1
+  wallet:
+    # -- database driver to be used
+    driver: sqlite3
+    connectionString: file:/db/wallet.sqlite?mode=rwc&cache=shared&_fk=1
