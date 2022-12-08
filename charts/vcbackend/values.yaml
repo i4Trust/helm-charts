@@ -57,6 +57,12 @@ deployment:
     # -- address of the essif api
     essifUrl: https://essif.walt
 
+  # -- should sqlite be used
+  sqlite: true
+  # -- pvc to be used for the sqlite
+  pvc: 
+    size: 1Gi
+
   # -- additional labels for the deployment, if required
   additionalLabels: {}
   # -- additional annotations for the deployment, if required

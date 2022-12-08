@@ -15,7 +15,7 @@ data:
 
     store:
       driverName: "sqlite3"
-      dataSourceName: "file:issuer.sqlite?mode=rwc&cache=shared&_fk=1"
+      dataSourceName: "file:/db/issuer.sqlite?mode=rwc&cache=shared&_fk=1"
 
     issuer:
       id: HappyPets
@@ -23,7 +23,7 @@ data:
       password: ThePassword
       store:
         driverName: "sqlite3"
-        dataSourceName: "file:issuer.sqlite?mode=rwc&cache=shared&_fk=1"
+        dataSourceName: "file:/db/issuer.sqlite?mode=rwc&cache=shared&_fk=1"
 
     verifier:
       id: PacketDelivery
@@ -31,7 +31,7 @@ data:
       password: ThePassword
       store:
         driverName: "sqlite3"
-        dataSourceName: "file:verifier.sqlite?mode=rwc&cache=shared&_fk=1"
+        dataSourceName: "file:/db/verifier.sqlite?mode=rwc&cache=shared&_fk=1"
       protectedResource:
         url: "{{ .Values.deployment.protectedResource }}"
 
@@ -39,12 +39,12 @@ data:
       password: ThePassword
       store:
         driverName: "sqlite3"
-        dataSourceName: "file:verifiableregistry.sqlite?mode=rwc&cache=shared&_fk=1"
+        dataSourceName: "file:/db/verifiableregistry.sqlite?mode=rwc&cache=shared&_fk=1"
 
     wallet:
       store:
         driverName: "sqlite3"
-        dataSourceName: "file:wallet.sqlite?mode=rwc&cache=shared&_fk=1"
+        dataSourceName: "file:/db/wallet.sqlite?mode=rwc&cache=shared&_fk=1"
 
     ssikit:
       coreURL: {{ .Values.deployment.walt.coreUrl }}
