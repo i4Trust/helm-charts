@@ -1,4 +1,4 @@
-{{- if .Values.deployment.sqlite }}
+{{- if .Values.db.fileBased }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -6,12 +6,12 @@ metadata:
   labels:
     {{ include "vcbackend.labels" . | nindent 4 }}
 spec:
-  {{- if .Values.deployment.pvc.storageClass }}
-  storageClassName: {{ .Values.deployment.pvc.storageClass }}
+  {{- if .Values.db.pvc.storageClass }}
+  storageClassName: {{ .Values.db.pvc.storageClass }}
   {{- end }}
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values.deployment.pvc.size | quote }}
+      storage: {{ .Values.db.pvc.size | quote }}
 {{- end }}

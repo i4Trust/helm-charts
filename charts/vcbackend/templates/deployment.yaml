@@ -51,7 +51,7 @@ spec:
           volumeMounts:
             - mountPath: /configs/
               name: config-volume
-            {{- if .Values.deployment.sqlite }}
+            {{- if .Values.db.fileBased }}
             - mountPath: /db/
               name: db-volume
             {{- end }}
@@ -59,7 +59,7 @@ spec:
       - name: config-volume
         configMap:
           name: {{ include "vcbackend.fullname" . }}
-      {{- if .Values.deployment.sqlite }}
+      {{- if .Values.db.fileBased }}
       - name: db-volume
         persistentVolumeClaim:
           claimName: {{ include "vcbackend.fullname" . }}
