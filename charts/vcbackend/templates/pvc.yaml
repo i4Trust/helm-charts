@@ -1,6 +1,6 @@
 {{- if .Values.deployment.sqlite }}
+kind: PersistentVolumeClaim
 apiVersion: v1
-kind: Pod
 metadata:
   name: {{ include "vcbackend.fullname" . }}
   labels:
