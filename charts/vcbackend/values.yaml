@@ -1,4 +1,4 @@
-# Default values for activation-service.
+# Default values for vcbackend.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -32,7 +32,7 @@ deployment:
   ## configuration of the image to be used
   image:
     # -- image name
-    # ref: https://hub.docker.com/r/i4trust/activation-service
+    # ref: https://hub.docker.com/r/i4trust/vcbackend
     repository: wistefan/vcbackend
     # -- tag of the image to be used
     tag: 0.0.1
@@ -105,6 +105,28 @@ route:
   #   issuer:
   #     kind: ClusterIssuer
   #     name: letsencrypt-aws-prod
+
+## ingress configuration
+ingress:
+  # -- should there be an ingress to connect the activation service with the public internet
+  enabled: false
+  # -- annotations to be added to the ingress
+  annotations: {}
+    # kubernetes.io/ingress.class: "ambassador"
+    ## example annotations, allowing cert-manager to automatically create tls-certs and forcing everything to use ssl.
+    # kubernetes.io/tls-acme: "true"
+    # ingress.kubernetes.io/ssl-redirect: "true"
+  # -- all hosts to be provided
+  hosts: []
+    ## provide a hosts and the paths that should be available
+    # - host: localhost
+      # paths:
+      # - /
+  # -- configure the ingress' tls
+  tls: []
+    # - secretName: bae-as-tls
+      # hosts:
+        # - vcbackend.fiware.org
 
 # -- configuration for the databse
 db:
