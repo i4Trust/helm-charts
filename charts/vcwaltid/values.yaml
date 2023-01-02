@@ -333,12 +333,12 @@ config:
 
     id.walt.services.context.ContextManager=id.walt.services.context.WaltIdContextManager
 
-    id.walt.signatory.Signatory=/app/signatory.conf
+    id.walt.signatory.Signatory=/config/signatory.conf
 
     id.walt.custodian.Custodian=id.walt.custodian.WaltIdCustodian
 
     id.walt.auditor.Auditor=id.walt.auditor.WaltIdAuditor
-    
+
     id.walt.services.ecosystems.gaiax.GaiaxService=id.walt.services.ecosystems.gaiax.WaltIdGaiaxService
 
 
