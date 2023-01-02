@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "vcwaltid.fullname" . }}
+  labels:
+    {{- include "vcwaltid.labels" . | nindent 4 }}
+data:
+  walt.yaml: |
+    hikariDataSource:
+      {{- with .Values.config.datasource }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+    {{- with .Values.config.additional }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.config.serviceConf }}
+  {{- toYaml . | nindent 2 }}
+  {{- end }}
+  service-matrix.properties: |
+    {{- with .Values.config.serviceMatrix }}
+    {{- . | nindent 4 }}
+    {{- end }}

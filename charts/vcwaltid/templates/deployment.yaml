@@ -71,10 +71,20 @@ spec:
           volumeMounts:
             - mountPath: /app/data
               name: data-volume
+            - mountPath: /templates
+              name: templates-volume
+            - mountPath: /app
+              name: config-volume
       volumes:
       - name: data-volume
         emptyDir:
           sizeLimit: 500Mi
+      - name: config-volume
+        configMap:
+          name: {{ include "vcwaltid.fullname" . }}
+      - name: templates-volume
+        configMap:
+          name: {{ include "vcwaltid.fullname" . }}-templates
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
