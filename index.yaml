@@ -541,6 +541,24 @@ entries:
   vcwaltid:
   - apiVersion: v1
     appVersion: 0.0.1
+    created: "2023-01-02T14:13:05.323871128Z"
+    description: A Helm chart for running the i4Trust DSBA vcwaltid.
+    digest: 856739a7d128da0fdd4aa99205a61b40b3300bf5cde6a67a50b3c3dd06020126
+    home: https://github.com/hesusruiz/vcwaltid
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcwaltid
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcwaltid-0.0.6/vcwaltid-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v1
+    appVersion: 0.0.1
     created: "2023-01-02T13:51:40.987321127Z"
     description: A Helm chart for running the i4Trust DSBA vcwaltid.
     digest: 3ef673404bdffabef0f579b2da553579c793d9e32967a43e83bb099e441ca68a
