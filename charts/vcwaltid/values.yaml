@@ -305,7 +305,7 @@ config:
         domain="TEST"
         nonce="todo"
       }
-      templatesFolder="/templates"
+      templatesFolder: "/templates"
 
 
   # -- service matrix config, see waltID documentation for more details
