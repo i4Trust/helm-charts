@@ -78,6 +78,9 @@ spec:
               name: templates-volume
             - mountPath: /config
               name: config-volume
+            - mountPath: /app/service-matrix.properties
+              name: sm-volume
+              subPath: service-matrix.properties
       volumes:
       - name: data-volume
         emptyDir:
@@ -88,6 +91,9 @@ spec:
       - name: templates-volume
         configMap:
           name: {{ include "vcwaltid.fullname" . }}-templates
+      - name: sm-volume
+        configMap:
+          name: {{ include "vcwaltid.fullname" . }}-sm
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

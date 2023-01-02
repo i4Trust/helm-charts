@@ -16,7 +16,3 @@ data:
   {{- with .Values.config.serviceConf }}
   {{- toYaml . | nindent 2 }}
   {{- end }}
-  service-matrix.properties: |
-    {{- with .Values.config.serviceMatrix }}
-    {{- . | nindent 4 }}
-    {{- end }}
