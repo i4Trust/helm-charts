@@ -281,3 +281,106 @@ api:
         # - secretName: bae-as-tls
           # hosts:
             # - vcbackend.fiware.org
+
+# -- config to be used by walt
+config:
+  # -- database configuaration, see hikari docu for options
+  datasource:
+    jdbcUrl: jdbc:sqlite:data/walt.db
+    maximumPoolSize: 5
+    autoCommit: false
+    dataSource:
+        journalMode: WAL
+        fullColumnNames: false
+  # -- all additional config to be used by waltid 
+  additionalConfig:
+
+  # -- service configurations
+  serviceConf:
+    signatory.conf: |
+      proofConfig {
+        issuerDid="To-be-decided"
+        issuerVerificationMethod="todo"
+        proofType="LD_PROOF"
+        domain="TEST"
+        nonce="todo"
+      }
+      templatesFolder="/templates"
+
+
+  # -- service matrix config, see waltID documentation for more details
+  # -- in order to change the config of a service, set the config path to the mounted file
+  serviceMatrix:
+    id.walt.services.ecosystems.essif.didebsi.DidEbsiService=id.walt.services.ecosystems.essif.didebsi.WaltIdDidEbsiService
+
+    id.walt.services.ecosystems.essif.jsonrpc.JsonRpcService=id.walt.services.ecosystems.essif.jsonrpc.WaltIdJsonRpcService
+
+    id.walt.services.vc.JsonLdCredentialService=id.walt.services.vc.WaltIdJsonLdCredentialService
+
+    id.walt.services.vc.JwtCredentialService=id.walt.services.vc.WaltIdJwtCredentialService
+
+    id.walt.services.crypto.CryptoService=id.walt.services.crypto.SunCryptoService
+
+    id.walt.services.keystore.KeyStoreService=id.walt.services.keystore.SqlKeyStoreService
+
+    id.walt.services.key.KeyService=id.walt.services.key.WaltIdKeyService
+
+    id.walt.services.jwt.JwtService=id.walt.services.jwt.WaltIdJwtService
+
+    id.walt.services.vcstore.VcStoreService=id.walt.services.vcstore.FileSystemVcStoreService
+
+    id.walt.services.hkvstore.HKVStoreService=id.walt.services.hkvstore.FileSystemHKVStore:config/fsStore.conf
+
+    id.walt.services.context.ContextManager=id.walt.services.context.WaltIdContextManager
+
+    id.walt.signatory.Signatory=/app/signatory.conf
+
+    id.walt.custodian.Custodian=id.walt.custodian.WaltIdCustodian
+
+    id.walt.auditor.Auditor=id.walt.auditor.WaltIdAuditor
+    
+    id.walt.services.ecosystems.gaiax.GaiaxService=id.walt.services.ecosystems.gaiax.WaltIdGaiaxService
+
+
+# -- VC templates to be used by waltId
+templates:
+  PacketDeliveryService.json: |
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+      ],
+      "credentialSchema": {
+        "id": "https://raw.githubusercontent.com/hesusruiz/dsbamvf/main/schemas/PacketDeliveryService/2022-10/schema.json",
+        "type": "FullJsonSchemaValidator2021"
+      },
+      "credentialSubject": {
+        "familyName": "Customer",
+        "firstName": "Happy",
+        "id": "did:key:z6Mkfdio1n9SKoZUtKdr9GTCZsRPbwHN8f7rbJghJRGdCt88",
+        "roles": [
+          {
+            "names": [
+              "GOLD_CUSTOMER"
+            ],
+            "target": "EU.EORI.NLPACKETDEL"
+          }
+        ]
+      },
+      "id": "urn:uuid:b84ceee3-7cc6-4a1c-b0c2-4fbffe8346d2",
+      "issuanceDate": "2022-12-13T14:09:43Z",
+      "issued": "2022-12-13T14:09:43Z",
+      "issuer": "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S",
+      "proof": {
+        "created": "2022-12-13T14:09:44Z",
+        "creator": "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S",
+        "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..vMs2iaQddhKDhu4tQMdHxqvMu9ksdxiYr2Q-dXXSRoDEmZyyfw5VsoPXJmVRBauovpFXatL9Je7zjSu9zSo7AA",
+        "type": "JsonWebSignature2020",
+        "verificationMethod": "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S#z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S"
+      },
+      "type": [
+        "VerifiableCredential",
+        "PacketDeliveryService"
+      ],
+      "validFrom": "2022-12-13T14:09:43Z"
+    }
