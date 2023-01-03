@@ -76,7 +76,7 @@ spec:
               name: data-volume
             - mountPath: /templates
               name: templates-volume
-            - mountPath: /app/bin/walt.yaml
+            - mountPath: /app/walt.yaml
               name: config-volume
               subPath: walt.yaml
             - mountPath: /config
