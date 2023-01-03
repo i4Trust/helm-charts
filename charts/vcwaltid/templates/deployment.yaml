@@ -38,9 +38,9 @@ spec:
             - serve
             - -b
             - 0.0.0.0
-          env:
-            - name: CONFIG_FILE
-              value: "/config/walt.yaml"
+          #env:
+          #  - name: CONFIG_FILE
+          #    value: "/config/walt.yaml"
           ports:
             {{- if .Values.api.core.enabled }}
             - containerPort: {{ .Values.api.core.port }}
@@ -76,6 +76,9 @@ spec:
               name: data-volume
             - mountPath: /templates
               name: templates-volume
+            - mountPath: /app/bin/walt.yaml
+              name: config-volume
+              subPath: walt.yaml
             - mountPath: /config
               name: config-volume
             - mountPath: /app/service-matrix.properties
