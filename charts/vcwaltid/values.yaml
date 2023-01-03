@@ -346,41 +346,24 @@ config:
 templates:
   PacketDeliveryService.json: |
     {
-      "@context": [
-        "https://www.w3.org/2018/credentials/v1",
-        "https://w3id.org/security/suites/jws-2020/v1"
-      ],
+      "@context": ["https://www.w3.org/2018/credentials/v1"],
       "credentialSchema": {
         "id": "https://raw.githubusercontent.com/hesusruiz/dsbamvf/main/schemas/PacketDeliveryService/2022-10/schema.json",
         "type": "FullJsonSchemaValidator2021"
       },
       "credentialSubject": {
-        "familyName": "Customer",
-        "firstName": "Happy",
-        "id": "did:key:z6Mkfdio1n9SKoZUtKdr9GTCZsRPbwHN8f7rbJghJRGdCt88",
-        "roles": [
-          {
-            "names": [
-              "GOLD_CUSTOMER"
-            ],
-            "target": "EU.EORI.NLPACKETDEL"
-          }
-        ]
+        "familyName": "Ruiz",
+        "firstName": "Jesus",
+        "id": "did:ebsi:2AEMAqXWKYMu1JHPAgGcga4dxu7ThgfgN95VyJBJGZbSJUtp",
+        "roles": [{
+          "names": ["P.Info.gold"],
+          "target": "did:elsi:packetdelivery"
+        }]
       },
-      "id": "urn:uuid:b84ceee3-7cc6-4a1c-b0c2-4fbffe8346d2",
-      "issuanceDate": "2022-12-13T14:09:43Z",
-      "issued": "2022-12-13T14:09:43Z",
-      "issuer": "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S",
-      "proof": {
-        "created": "2022-12-13T14:09:44Z",
-        "creator": "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S",
-        "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..vMs2iaQddhKDhu4tQMdHxqvMu9ksdxiYr2Q-dXXSRoDEmZyyfw5VsoPXJmVRBauovpFXatL9Je7zjSu9zSo7AA",
-        "type": "JsonWebSignature2020",
-        "verificationMethod": "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S#z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S"
-      },
-      "type": [
-        "VerifiableCredential",
-        "PacketDeliveryService"
-      ],
-      "validFrom": "2022-12-13T14:09:43Z"
+      "id": "urn:uuid:3add94f4-28ec-42a1-8704-4e4aa51006b4",
+      "issued": "2021-08-31T00:00:00Z",
+      "issuer": "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN",
+      "validFrom": "2021-08-31T00:00:00Z",
+      "issuanceDate": "2021-08-31T00:00:00Z",
+      "type": ["VerifiableCredential", "PacketDeliveryService"]
     }
