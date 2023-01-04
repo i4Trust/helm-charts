@@ -41,7 +41,7 @@ spec:
           
           env:
             - name: AS_MAX_HEADER_SIZE
-              value: {{ .Values.maxHttpHeaderSize }}
+              value: {{ .Values.maxHttpHeaderSize | quote }}
             {{- if .Values.debug.enabled }}
             - name: DEBUG
               value: {{ .Values.debug.output | quote }}
