@@ -141,6 +141,9 @@ debug:
 # Use values from existing secret as ENVs
 #existingSecretEnvs: ""
 
+## Set max HTTP header size
+maxHttpHeaderSize: 32768
+
 # Activation Service configuration (inserted at config/as.yml)
 config:
   # Client configuration

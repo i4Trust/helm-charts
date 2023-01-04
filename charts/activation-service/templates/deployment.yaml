@@ -38,11 +38,14 @@ spec:
             - name: http
               containerPort: {{ .Values.config.express.port }}
               protocol: TCP
-          {{- if .Values.debug.enabled }}
+          
           env:
+            - name: AS_MAX_HEADER_SIZE
+              value: {{ .Values.maxHttpHeaderSize }}
+            {{- if .Values.debug.enabled }}
             - name: DEBUG
               value: {{ .Values.debug.output | quote }}
-          {{- end }}
+            {{- end }}
           {{- if .Values.existingSecretEnvs }}
           envFrom:
             - secretRef:

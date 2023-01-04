@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![AppVersion: 1.1.1](https://img.shields.io/badge/AppVersion-1.1.1-informational?style=flat-square)
+![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ![AppVersion: 1.3.0](https://img.shields.io/badge/AppVersion-1.3.0-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry
 
@@ -63,6 +63,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | ingress.enabled | bool | `false` | should there be an ingress to connect the activation service with the public internet |
 | ingress.hosts | list | `[]` | all hosts to be provided |
 | ingress.tls | list | `[]` | configure the ingress' tls |
+| maxHttpHeaderSize | int | `32768` |  |
 | nameOverride | string | `""` |  |
 | route.annotations | object | `{}` | annotations to be added to the route |
 | route.certificate | object | `{}` | see: https://github.com/FIWARE-Ops/fiware-gitops/blob/master/doc/ROUTES.md |
