@@ -1,0 +1,15 @@
+apiVersion: v1
+name: vcverifier
+version: 0.0.1
+appVersion: 0.0.1
+home: https://github.com/fiware/vcverifier
+description: A Helm chart for running the i4Trust DSBA VCVerifier.
+keywords:
+- i4Trust
+- experimentation framework
+- FIWARE
+- proof of concept
+- verifiable credentials
+maintainers:
+- name: wistefan
+  email: stefan.wiedemann@fiware.org
