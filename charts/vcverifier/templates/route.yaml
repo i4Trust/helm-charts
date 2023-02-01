@@ -1,15 +1,15 @@
 {{- if .Values.route.enabled }}
-{{- $fullName := include "vcbackend.fullname" . -}}
+{{- $fullName := include "vcverifier.fullname" . -}}
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ include "vcbackend.fullname" . }}
+  name: {{ include "vcverifier.fullname" . }}
   labels:
-    {{ include "vcbackend.labels" . | nindent 4 }}
+    {{ include "vcverifier.labels" . | nindent 4 }}
   {{- if or .Values.route.annotations .Values.route.certificate }}
   annotations:
     {{- if .Values.route.certificate }}
-    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "vcbackend.fullname" . }}-tls-sec
+    cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "vcverifier.fullname" . }}-tls-sec
     {{- end }}
     {{- with .Values.route.annotations }}
       {{- toYaml . | nindent 4 }}
