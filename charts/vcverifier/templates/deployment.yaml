@@ -1,9 +1,9 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: {{ include "vcbackend.fullname" . }}
+  name: {{ include "vcverifier.fullname" . }}
   labels:
-    {{ include "vcbackend.labels" . | nindent 4 }}
+    {{ include "vcverifier.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   revisionHistoryLimit: {{ .Values.deployment.revisionHistoryLimit }}
@@ -13,12 +13,12 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "vcbackend.name" . }}
+      app.kubernetes.io/name: {{ include "vcverifier.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        {{ include "vcbackend.labels" . | nindent 8 }}
+        {{ include "vcverifier.labels" . | nindent 8 }}
         {{- with .Values.deployment.additionalLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -29,7 +29,7 @@ spec:
         {{- end }}
       {{- end }}
     spec: 
-      serviceAccountName: {{ include "vcbackend.serviceAccountName" . }}
+      serviceAccountName: {{ include "vcverifier.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
@@ -58,11 +58,11 @@ spec:
       volumes:
       - name: config-volume
         configMap:
-          name: {{ include "vcbackend.fullname" . }}
+          name: {{ include "vcverifier.fullname" . }}
       {{- if .Values.db.fileBased }}
       - name: db-volume
         persistentVolumeClaim:
-          claimName: {{ include "vcbackend.fullname" . }}
+          claimName: {{ include "vcverifier.fullname" . }}
       {{- end }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:

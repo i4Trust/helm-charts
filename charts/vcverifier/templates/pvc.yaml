@@ -2,9 +2,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "vcbackend.fullname" . }}
+  name: {{ include "vcverifier.fullname" . }}
   labels:
-    {{ include "vcbackend.labels" . | nindent 4 }}
+    {{ include "vcverifier.labels" . | nindent 4 }}
 spec:
   {{- if .Values.db.pvc.storageClass }}
   storageClassName: {{ .Values.db.pvc.storageClass }}
