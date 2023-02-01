@@ -1,0 +1,17 @@
+{{- if .Values.db.fileBased }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "vcbackend.fullname" . }}
+  labels:
+    {{ include "vcbackend.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.db.pvc.storageClass }}
+  storageClassName: {{ .Values.db.pvc.storageClass }}
+  {{- end }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.db.pvc.size | quote }}
+{{- end }}
