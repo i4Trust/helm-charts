@@ -601,6 +601,26 @@ entries:
     urls:
     - https://github.com/i4Trust/helm-charts/releases/download/vcbackend-0.0.1/vcbackend-0.0.1.tgz
     version: 0.0.1
+  vcverifier:
+  - apiVersion: v1
+    appVersion: 0.0.1
+    created: "2023-02-01T09:34:35.203170633Z"
+    description: A Helm chart for running the i4Trust DSBA VCVerifier.
+    digest: 563b7555d02b5eebc2f20d278cf3b1be26ffb14654bac099c68cdf0d6b9d771a
+    home: https://github.com/fiware/vcverifier
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - FIWARE
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcverifier
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcverifier-0.0.1/vcverifier-0.0.1.tgz
+    version: 0.0.1
   vcwaltid:
   - apiVersion: v1
     appVersion: 0.0.1
