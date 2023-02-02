@@ -21,6 +21,8 @@ data:
       id: PacketDelivery
       name: PacketDelivery
       password: ThePassword
+      uri_prefix: /verifier
+      jwks_uri: /.well-known/jwks
       store:
         driverName: {{ .Values.db.verifier.driver | quote }}
         dataSourceName: {{ .Values.db.verifier.connectionString | quote }}
