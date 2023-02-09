@@ -63,8 +63,11 @@ deployment:
 
 ## configuration of persistence for walt-id
 persistence:
+  # -- should persistence be enabled
   enabled: true
+  # -- specific config for the pvc
   pvc:
+    # -- size to initiate it with
     size: 1Gi
 
 ## configuration for the k8s service to access the vcwaltid
