@@ -32,10 +32,10 @@ deployment:
   ## configuration of the image to be used
   image:
     # -- image name
-    # ref: https://hub.docker.com/r/i4trust/activation-service
-    repository: wistefan/vcwaltid
+    # temporary retagged image, since walt is currently reworking there versioning approach
+    repository: quay.io/fiware/waltid
     # -- tag of the image to be used
-    tag: 0.0.1
+    tag: 1.13.0-SNAPSHOT
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
@@ -60,6 +60,15 @@ deployment:
   # -- affinity template
   # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
   affinity: {}
+
+## configuration of persistence for walt-id
+persistence:
+  # -- should persistence be enabled
+  enabled: true
+  # -- specific config for the pvc
+  pvc:
+    # -- size to initiate it with
+    size: 1Gi
 
 ## configuration for the k8s service to access the vcwaltid
 service:
