@@ -86,8 +86,13 @@ spec:
               subPath: service-matrix.properties
       volumes:
       - name: data-volume
+        {{- if .Values.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ include "vcwaltid.fullname" . }}
+        {{- else }}
         emptyDir:
           sizeLimit: 500Mi
+        {{- end }}
       - name: config-volume
         configMap:
           name: {{ include "vcwaltid.fullname" . }}
