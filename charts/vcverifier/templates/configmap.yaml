@@ -24,7 +24,7 @@ data:
       uri_prefix: /verifier
       jwks_uri: /.well-known/jwks
       {{- if .Values.deployment.tirAddress }}
-      tirAddress: {{ .Value.deployment.tirAddress }}
+      tirAddress: {{ .Values.deployment.tirAddress }}
       {{- end }}
       store:
         driverName: {{ .Values.db.verifier.driver | quote }}
