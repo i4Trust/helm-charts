@@ -72,7 +72,7 @@ spec:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
           ## workaround for missing db support
           volumeMounts:
-            - mountPath: /app/data
+            - mountPath: /app/data/
               name: data-volume
             - mountPath: /templates
               name: templates-volume
