@@ -23,8 +23,8 @@ data:
       password: ThePassword
       uri_prefix: /verifier
       jwks_uri: /.well-known/jwks
-      {{- if .Values.deplyoment.tirAddress }}
-      tirAddress: {{ .Value.deplyoment.tirAddress }}
+      {{- if .Values.deployment.tirAddress }}
+      tirAddress: {{ .Value.deployment.tirAddress }}
       {{- end }}
       store:
         driverName: {{ .Values.db.verifier.driver | quote }}
