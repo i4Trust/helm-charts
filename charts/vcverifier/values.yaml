@@ -43,9 +43,11 @@ deployment:
   logLevel: DEBUG
   # -- url of the resource to request 
   protectedResource:
-  ## -- address of an ebsi compliant(https://api-pilot.ebsi.eu/docs/apis/trusted-issuers-registry/latest#/) trusted issuers registry for validating the incoming VCs
-  ## -- if not set, the issuer will not be verified
+  # -- address of an ebsi compliant(https://api-pilot.ebsi.eu/docs/apis/trusted-issuers-registry/latest#/) trusted issuers registry for validating the incoming VCs
+  # -- if not set, the issuer will not be verified
   tirAddress: 
+  # -- did of the verifier
+  did: 
   # -- urls of vcwalt to connect to
   walt:
     # -- address of the core api
