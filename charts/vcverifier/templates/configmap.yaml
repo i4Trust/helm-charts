@@ -19,6 +19,9 @@ data:
 
     verifier:
       id: PacketDelivery
+      {{- if .Values.deployment.did }}
+      did: {{ .Values.deployment.did }}
+      {{- end }}
       name: PacketDelivery
       password: ThePassword
       uri_prefix: /verifier
