@@ -95,12 +95,12 @@ deployment:
   ## liveness and readiness probes of the dsba-pdp broker, they will be evaluated against the version endpoint
   # ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
   livenessProbe:
-    initialDelaySeconds: 30
+    initialDelaySeconds: 3
     periodSeconds: 10
     successThreshold: 1
     timeoutSeconds: 30
   readinessProbe:
-    initialDelaySeconds: 31
+    initialDelaySeconds: 4
     periodSeconds: 10
     successThreshold: 1
     timeoutSeconds: 30
