@@ -51,18 +51,18 @@ spec:
           volumeMounts:
             - mountPath: /configs/
               name: config-volume
-            {{- if .Values.db.fileBased }}
-            - mountPath: /db/
-              name: db-volume
+            {{- if .Values.templates }}
+            - mountPath: /templates/
+              name: template-volume
             {{- end }}
       volumes:
       - name: config-volume
         configMap:
           name: {{ include "vcverifier.fullname" . }}
-      {{- if .Values.db.fileBased }}
-      - name: db-volume
-        persistentVolumeClaim:
-          claimName: {{ include "vcverifier.fullname" . }}
+      {{- if .Values.templates }}
+      - name: template-volume
+        emptyDir:
+          sizeLimit: 500Mi
       {{- end }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
