@@ -25,5 +25,5 @@ data:
       requestScope: {{ .Values.deployment.verifier.requestScope | quote}} 
       {{- end }}
 
-    ssikit:
+    ssiKit:
       auditorURL: {{ .Values.deployment.ssikit.auditorUrl }}
