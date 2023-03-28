@@ -48,7 +48,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: httpbackend
+              port: backend
             initialDelaySeconds: {{ .Values.deployment.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.deployment.livenessProbe.periodSeconds }}
             successThreshold: {{ .Values.deployment.livenessProbe.successThreshold }}
