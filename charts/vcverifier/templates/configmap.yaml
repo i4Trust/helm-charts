@@ -7,43 +7,23 @@ metadata:
 data:
   server.yaml: |-
     server:
-      listenAddress: "0.0.0.0:{{ .Values.deployment.port }}"
-      staticDir: "back/www"
-      templateDir: "back/views"
-      environment: development
-      loglevel: {{ .Values.deployment.logLevel }}
+      port: {{ .Values.deployment.port }}
+      staticDir: {{ .Values.deployment.server.staticDir | quote }}
+      templateDir: {{ .Values.deployment.server.templateDir | quote }}
 
-    store:
-      driverName: {{ .Values.db.store.driver | quote }}
-      dataSourceName: {{ .Values.db.store.connectionString | quote }}
+    logging:
+      level: {{ .Values.deployment.logging.level | quote }}
+      jsonLogging: {{ .Values.deployment.logging.jsonLogging | quote }}
+      logRequests: {{ .Values.deployment.logging.logRequests | quote }}
+      pathsToSkip: {{ .Values.deployment.logging.pathsToSkip }}
 
     verifier:
-      id: PacketDelivery
-      {{- if .Values.deployment.did }}
-      did: {{ .Values.deployment.did }}
+      did: {{ .Values.deployment.verifier.did | quote }}
+      tirAddress: {{ .Values.deployment.verifier.tirAddress | quote }}
+      sessionExpiry: {{ .Values.deployment.verifier.sessionExpiry }}
+      {{- .Values.deployment.verifier.requestScope }}
+      requestScope: {{ .Values.deployment.verifier.requestScope | quote}} 
       {{- end }}
-      name: PacketDelivery
-      password: ThePassword
-      uri_prefix: /verifier
-      jwks_uri: /.well-known/jwks
-      {{- if .Values.deployment.tirAddress }}
-      tirAddress: {{ .Values.deployment.tirAddress }}
-      {{- end }}
-      store:
-        driverName: {{ .Values.db.verifier.driver | quote }}
-        dataSourceName: {{ .Values.db.verifier.connectionString | quote }}
-      protectedResource:
-        url: "{{ .Values.deployment.protectedResource }}"
-
-    verifiableregistry:
-      password: ThePassword
-      store:
-        driverName: {{ .Values.db.verifiableregistry.driver | quote }}
-        dataSourceName: {{ .Values.db.verifiableregistry.connectionString | quote }}
 
     ssikit:
-      coreURL: {{ .Values.deployment.walt.coreUrl }}
-      signatoryURL: {{ .Values.deployment.walt.signatoryUrl }}
-      auditorURL: {{ .Values.deployment.walt.auditorUrl }}
-      custodianURL: {{ .Values.deployment.walt.custodianUrl }}
-      essifURL: {{ .Values.deployment.walt.essifUrl }}
+      auditorURL: {{ .Values.deployment.ssikit.auditorUrl }}
