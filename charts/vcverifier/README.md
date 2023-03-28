@@ -1,6 +1,6 @@
 # vcverifier
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 1.0.0-PRE](https://img.shields.io/badge/AppVersion-1.0.0--PRE-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![AppVersion: 1.0.0-PRE](https://img.shields.io/badge/AppVersion-1.0.0--PRE-informational?style=flat-square)
 
 A Helm chart for running the i4Trust DSBA VCVerifier.
 
@@ -22,6 +22,10 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"quay.io/fiware/vcverifier"` | image name |
 | deployment.image.tag | string | `"0.0.1"` | tag of the image to be used |
+| deployment.livenessProbe.initialDelaySeconds | int | `30` |  |
+| deployment.livenessProbe.periodSeconds | int | `10` |  |
+| deployment.livenessProbe.successThreshold | int | `1` |  |
+| deployment.livenessProbe.timeoutSeconds | int | `30` |  |
 | deployment.logging | object | `{"jsonLogging":true,"level":"WARN","logRequests":true,"pathsToSkip":["/metrics","/health"]}` | logging configuration |
 | deployment.logging.jsonLogging | bool | `true` | should the log be in structured json |
 | deployment.logging.level | string | `"WARN"` | the log level, can be DEBUG, INFO, WARN, ERROR |
@@ -29,6 +33,10 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | deployment.logging.pathsToSkip | list | `["/metrics","/health"]` | list of paths to be excluded from the request logging |
 | deployment.nodeSelector | object | `{}` | selector template ref: https://kubernetes.io/docs/user-guide/node-selection/ |
 | deployment.port | int | `3000` | port to run the container at |
+| deployment.readinessProbe.initialDelaySeconds | int | `31` |  |
+| deployment.readinessProbe.periodSeconds | int | `10` |  |
+| deployment.readinessProbe.successThreshold | int | `1` |  |
+| deployment.readinessProbe.timeoutSeconds | int | `30` |  |
 | deployment.replicaCount | int | `1` | initial number of target replications, can be different if autoscaling is enabled |
 | deployment.revisionHistoryLimit | int | `3` | number of old replicas to be retained |
 | deployment.server | object | `{"staticDir":"views/static","templateDir":"views/"}` | configuration for server |
