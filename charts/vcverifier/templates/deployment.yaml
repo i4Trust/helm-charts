@@ -45,6 +45,22 @@ spec:
             {{- toYaml . | nindent 12 }}
             {{- end }}
           {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: httpbackend
+            initialDelaySeconds: {{ .Values.deployment.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.deployment.livenessProbe.periodSeconds }}
+            successThreshold: {{ .Values.deployment.livenessProbe.successThreshold }}
+            timeoutSeconds: {{ .Values.deployment.livenessProbe.timeoutSeconds }}
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: backend
+            initialDelaySeconds: {{ .Values.deployment.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.deployment.readinessProbe.periodSeconds }}
+            successThreshold: {{ .Values.deployment.readinessProbe.successThreshold }}
+            timeoutSeconds: {{ .Values.deployment.readinessProbe.timeoutSeconds }}
           resources:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
           ## workaround for missing db support
