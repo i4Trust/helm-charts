@@ -1,6 +1,6 @@
 # vcverifier
 
-![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 A Helm chart for running the i4Trust DSBA VCVerifier.
 
@@ -21,7 +21,7 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"quay.io/fiware/vcverifier"` | image name |
-| deployment.image.tag | string | `"0.0.1"` | tag of the image to be used |
+| deployment.image.tag | string | `"0.0.2"` | tag of the image to be used |
 | deployment.livenessProbe.initialDelaySeconds | int | `3` |  |
 | deployment.livenessProbe.periodSeconds | int | `10` |  |
 | deployment.livenessProbe.successThreshold | int | `1` |  |

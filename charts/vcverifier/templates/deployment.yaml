@@ -68,7 +68,7 @@ spec:
             - mountPath: /configs/
               name: config-volume
             {{- if .Values.templates }}
-            - mountPath: /templates/
+            - mountPath: /vc-templates/
               name: template-volume
             {{- end }}
       volumes:
