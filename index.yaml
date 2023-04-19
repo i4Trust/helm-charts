@@ -604,6 +604,25 @@ entries:
   vcverifier:
   - apiVersion: v1
     appVersion: 1.0.0
+    created: "2023-04-19T10:07:03.03525518Z"
+    description: A Helm chart for running the i4Trust DSBA VCVerifier.
+    digest: c15676a707201f49cc74742610bc30c8705a6a5bbc04f13cb26c4d5df7f7e8d8
+    home: https://github.com/fiware/vcverifier
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - FIWARE
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcverifier
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcverifier-1.0.6/vcverifier-1.0.6.tgz
+    version: 1.0.6
+  - apiVersion: v1
+    appVersion: 1.0.0
     created: "2023-04-19T10:03:24.796310362Z"
     description: A Helm chart for running the i4Trust DSBA VCVerifier.
     digest: 6b8d837b0c3a7f56eaf53928f0cab741690d2e919959e6c94b55fdfd7becf53f
@@ -869,6 +888,24 @@ entries:
     - https://github.com/i4Trust/helm-charts/releases/download/vcverifier-0.0.1/vcverifier-0.0.1.tgz
     version: 0.0.1
   vcwaltid:
+  - apiVersion: v1
+    appVersion: 0.0.1
+    created: "2023-04-19T10:07:03.269616421Z"
+    description: A Helm chart for running the i4Trust DSBA vcwaltid.
+    digest: b1e490ca34a0d95e95f469ae41cf8127c1371c0dc0a9cd4f3aa0b5f0c11e7633
+    home: https://github.com/hesusruiz/vcwaltid
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcwaltid
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcwaltid-0.0.14/vcwaltid-0.0.14.tgz
+    version: 0.0.14
   - apiVersion: v1
     appVersion: 0.0.1
     created: "2023-02-13T14:37:38.599768834Z"
