@@ -35,7 +35,7 @@ deployment:
     # temporary retagged image, since walt is currently reworking there versioning approach
     repository: quay.io/fiware/waltid
     # -- tag of the image to be used
-    tag: 1.13.0-SNAPSHOT
+    tag: 1.14.1-SNAPSHOT
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
