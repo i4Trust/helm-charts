@@ -314,7 +314,7 @@ config:
         domain="TEST"
         nonce="todo"
       }
-      templatesFolder: "/templates"
+      templatesFolder: "/vc-templates-runtime"
 
 
   # -- service matrix config, see waltID documentation for more details
