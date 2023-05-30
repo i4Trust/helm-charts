@@ -35,8 +35,8 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | config.client.crt | string | `"<pdc-certs>"` | Client certificate (PEM certificate chain) |
 | config.client.id | string | `"EU.EORI.NLPACKETDEL"` | Client ID |
 | config.client.key | string | `"<pdc-private-key>"` | Client key (PEM private key) |
-| config.db.echo | bool | `true` |  |
-| config.db.modTracking | bool | `false` |  |
+| config.db.echo | bool | `true` | Enable SQL logging to stderr |
+| config.db.modTracking | bool | `false` | Enable tracking of modifications |
 | config.db.useMemory | bool | `true` | Use sqlite in-memory database |
 | deployment.additionalAnnotations | object | `{}` | additional annotations for the deployment, if required |
 | deployment.additionalLabels | object | `{}` | additional labels for the deployment, if required |
