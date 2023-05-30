@@ -173,9 +173,9 @@ config:
     useMemory: true
     # Use URI to external DB (e.g., MySQL, PostgreSQL)
     #useURI: ""
-    # Enable tracking of modifications
+    # -- Enable tracking of modifications
     modTracking: false
-    # Enable SQL logging to stderr
+    # -- Enable SQL logging to stderr
     echo: true
 
   ## Configuration of authorisation registry
