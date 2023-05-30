@@ -44,7 +44,7 @@ deployment:
     # ref: https://hub.docker.com/r/i4trust/activation-service
     repository: i4trust/activation-service
     # -- tag of the image to be used
-    tag: 1.3.1
+    tag: 2.0.0-PRE-15
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
@@ -133,18 +133,24 @@ ingress:
       # hosts:
         # - activation-service.fiware.org
 
-## Enable debugging output
-debug:
-  enabled: false
-  output: "as:*"
-
 # Use values from existing secret as ENVs
 #existingSecretEnvs: ""
 
-## Set max HTTP header size
-maxHttpHeaderSize: 32768
+## Configuration of activation service execution
+activationService:
+  # -- Listen port
+  port: 8080
 
-# Activation Service configuration (inserted at config/as.yml)
+  # -- Number of (gunicorn) workers that should be created
+  workers: 1
+
+  # -- Maximum header size in bytes
+  maxHeaderSize: 32768
+
+  # -- Log Level
+  logLevel: "info"
+
+## Activation Service configuration (inserted at config/as.yml)
 config:
   # Client configuration
   client:
@@ -155,25 +161,30 @@ config:
     # -- Client certificate (PEM certificate chain)
     crt: <pdc-certs>
 
-  # Configuration of express web server
-  express:
-    # Port (Internal port of the express web server)
-    port: 7000
-
-  # Configuration of SQLite database
+  ## Configuration of SQLite database
   db:
-    # Source (":memory:" or file e.g. "db.sqlite" for persistence)
-    source: ":memory:"
+    # Use sqlite file database (make sure that the volume is writeable)
+    #useFile:
+    #  # Filename for DB SQLite file
+    #  filename: "as.db"
+    #  # If empty, will use app base path
+    #  filepath: ""
+    # -- Use sqlite in-memory database
+    useMemory: true
+    # Use URI to external DB (e.g., MySQL, PostgreSQL)
+    #useURI: ""
+    # Enable tracking of modifications
+    modTracking: false
+    # Enable SQL logging to stderr
+    echo: true
 
-  # Configuration of authorisation registry
+  ## Configuration of authorisation registry
   ar:
-    # Endpoint for token request
+    # -- Endpoint for token request
     token: "https://ar.packetdelivery.net/connect/token"
-    # Endpoint for create policy requests
+    # -- Endpoint for create policy requests
     policy: "https://ar.packetdelivery.net/policy"
-    # Endpoint for delegation requests
+    # -- Endpoint for delegation requests
     delegation: "https://ar.packetdelivery.net/delegation"
-    # EORI of AR
+    # -- EORI of AR
     id: "EU.EORI.NLPACKETDEL"
-    # Disable SSL verification
-    rejectUnauthorized: false
