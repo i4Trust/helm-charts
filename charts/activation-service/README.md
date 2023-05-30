@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![AppVersion: 2.0.0](https://img.shields.io/badge/AppVersion-2.0.0-informational?style=flat-square)
+![Version: 2.0.1](https://img.shields.io/badge/Version-2.0.1-informational?style=flat-square) ![AppVersion: 2.0.0](https://img.shields.io/badge/AppVersion-2.0.0-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry or to create entries at a trusted issuers list
 
@@ -71,7 +71,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | route.enabled | bool | `false` |  |
 | route.tls | object | `{}` | tls configuration for the route |
 | service.annotations | object | `{}` | addtional annotations, if required |
-| service.port | int | `80` | port to be used by the service |
+| service.port | int | `8080` | port to be used by the service |
 | service.type | string | `"ClusterIP"` | service type |
 | serviceAccount | object | `{"create":false}` | if a specific service account should be used, it can be configured here ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
 | serviceAccount.create | bool | `false` | specifies if the account should be created |

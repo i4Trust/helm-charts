@@ -12,7 +12,7 @@ service:
   # -- service type
   type: ClusterIP
   # -- port to be used by the service
-  port: 80
+  port: 8080
   # -- addtional annotations, if required
   annotations: {}
 
