@@ -36,16 +36,18 @@ spec:
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
           ports:
             - name: http
-              containerPort: {{ .Values.config.express.port }}
+              containerPort: {{ .Values.activationService.port }}
               protocol: TCP
           
           env:
+            - name: AS_PORT
+              value: {{ .Values.activationService.port | quote }}
             - name: AS_MAX_HEADER_SIZE
-              value: {{ .Values.maxHttpHeaderSize | quote }}
-            {{- if .Values.debug.enabled }}
-            - name: DEBUG
-              value: {{ .Values.debug.output | quote }}
-            {{- end }}
+              value: {{ .Values.activationService.maxHttpHeaderSize | quote }}
+            - name: AS_GUNICORN_WORKERS
+              value: {{ .Values.activationService.workers | quote }}
+            - name: AS_LOG_LEVEL
+              value: {{ .Values.activationService.logLevel | quote }}
           {{- if .Values.existingSecretEnvs }}
           envFrom:
             - secretRef:
@@ -54,7 +56,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: {{ .Values.config.express.port }}
+              port: {{ .Values.activationService.port }}
             initialDelaySeconds: {{ .Values.deployment.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.deployment.livenessProbe.periodSeconds }}
             successThreshold: {{ .Values.deployment.livenessProbe.successThreshold }}
@@ -62,7 +64,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: {{ .Values.config.express.port }}
+              port: {{ .Values.activationService.port }}
             initialDelaySeconds: {{ .Values.deployment.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.deployment.readinessProbe.periodSeconds }}
             successThreshold: {{ .Values.deployment.readinessProbe.successThreshold }}
@@ -71,7 +73,7 @@ spec:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
           volumeMounts:
             - name: config-volume
-              mountPath: /home/aservice/config/as.yml
+              mountPath: /var/aservice/config/as.yml
               subPath: as.yml
       volumes:
         - name: config-volume
