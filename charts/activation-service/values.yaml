@@ -44,7 +44,7 @@ deployment:
     # ref: https://hub.docker.com/r/i4trust/activation-service
     repository: i4trust/activation-service
     # -- tag of the image to be used
-    tag: 2.0.0-PRE-15
+    tag: 2.0.0
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
