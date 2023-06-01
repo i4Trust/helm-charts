@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 2.0.2](https://img.shields.io/badge/Version-2.0.2-informational?style=flat-square) ![AppVersion: 2.0.0](https://img.shields.io/badge/AppVersion-2.0.0-informational?style=flat-square)
+![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ![AppVersion: 2.1.0](https://img.shields.io/badge/AppVersion-2.1.0-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry or to create entries at a trusted issuers list
 
@@ -38,6 +38,16 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | config.db.echo | bool | `true` | Enable SQL logging to stderr |
 | config.db.modTracking | bool | `false` | Enable tracking of modifications |
 | config.db.useMemory | bool | `true` | Use sqlite in-memory database |
+| config.issuer.algorithms | list | `["ES256"]` | Allowed algorithms for JWT signatures |
+| config.issuer.clientId | string | `"some-id"` | clientId parameter |
+| config.issuer.jwksPath | string | `"/.well-known/jwks"` | JWKS path at verifier |
+| config.issuer.providerId | string | `"did:key:some-key"` | Provider DID |
+| config.issuer.roles.createRole | string | `"CREATE_ISSUER"` | Role for creating trusted issuer |
+| config.issuer.roles.deleteRole | string | `"DELETE_ISSUER"` | Role for deleting trusted issuer |
+| config.issuer.roles.updateRole | string | `"UPDATE_ISSUER"` | Role for updating trusted issuer |
+| config.issuer.samedevicePath | string | `"/api/v1/samedevice"` | samedevice flow path at verifier |
+| config.issuer.tilUri | string | `"http://til.internal"` | URI of Trusted Issuers List service |
+| config.issuer.verifierUri | string | `"https://verifier.packetdelivery.net"` | URI of verifier |
 | deployment.additionalAnnotations | object | `{}` | additional annotations for the deployment, if required |
 | deployment.additionalLabels | object | `{}` | additional labels for the deployment, if required |
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
