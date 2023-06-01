@@ -53,7 +53,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"i4trust/activation-service"` | image name ref: https://hub.docker.com/r/i4trust/activation-service |
-| deployment.image.tag | string | `"2.0.0"` | tag of the image to be used |
+| deployment.image.tag | string | `"2.1.0"` | tag of the image to be used |
 | deployment.livenessProbe.initialDelaySeconds | int | `20` |  |
 | deployment.livenessProbe.periodSeconds | int | `10` |  |
 | deployment.livenessProbe.successThreshold | int | `1` |  |
