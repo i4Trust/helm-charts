@@ -1,6 +1,6 @@
 # vcverifier
 
-![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 1.0.7](https://img.shields.io/badge/Version-1.0.7-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
 
 A Helm chart for running the i4Trust DSBA VCVerifier.
 
@@ -19,9 +19,10 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | deployment.additionalAnnotations | object | `{}` | additional annotations for the deployment, if required |
 | deployment.additionalLabels | object | `{}` | additional labels for the deployment, if required |
 | deployment.affinity | object | `{}` | affinity template ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity |
+| deployment.configRepo | object | `{"configEndpoint":"http://credentials-config:8080/"}` | config repo configuration |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` | specification of the image pull policy |
 | deployment.image.repository | string | `"quay.io/fiware/vcverifier"` | image name |
-| deployment.image.tag | string | `"0.0.1"` | tag of the image to be used |
+| deployment.image.tag | string | `"2.0.1"` | tag of the image to be used |
 | deployment.livenessProbe.initialDelaySeconds | int | `3` |  |
 | deployment.livenessProbe.periodSeconds | int | `10` |  |
 | deployment.livenessProbe.successThreshold | int | `1` |  |
@@ -49,9 +50,8 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | deployment.updateStrategy.rollingUpdate.maxSurge | int | `1` | number of pods that can be created above the desired amount while updating |
 | deployment.updateStrategy.rollingUpdate.maxUnavailable | int | `0` | number of pods that can be unavailable while updating |
 | deployment.updateStrategy.type | string | `"RollingUpdate"` | type of the update |
-| deployment.verifier | object | `{"did":"did:key:myverifier","requestScope":null,"sessionExpiry":30,"tirAddress":"http://my-tir.org"}` | configuration required for the verifier functionality |
+| deployment.verifier | object | `{"did":"did:key:myverifier","sessionExpiry":30,"tirAddress":"http://my-tir.org"}` | configuration required for the verifier functionality |
 | deployment.verifier.did | string | `"did:key:myverifier"` | did to be used for the verifier |
-| deployment.verifier.requestScope | string | `nil` | scope(e.g. credential-types) to be requested from a calling wallet |
 | deployment.verifier.sessionExpiry | int | `30` | expiry of a login-session in seconds |
 | deployment.verifier.tirAddress | string | `"http://my-tir.org"` | address of the trusted issuers registry to be used for verification |
 | fullnameOverride | string | `""` |  |

@@ -21,9 +21,11 @@ data:
       did: {{ .Values.deployment.verifier.did | quote }}
       tirAddress: {{ .Values.deployment.verifier.tirAddress | quote }}
       sessionExpiry: {{ .Values.deployment.verifier.sessionExpiry }}
-      {{- if .Values.deployment.verifier.requestScope }}
-      requestScope: {{ .Values.deployment.verifier.requestScope | quote}} 
-      {{- end }}
 
     ssiKit:
       auditorURL: {{ .Values.deployment.ssikit.auditorUrl }}
+    
+    configRepo:
+      {{- with .Values.deployment.configRepo }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
