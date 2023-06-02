@@ -34,7 +34,7 @@ deployment:
     # -- image name
     repository: quay.io/fiware/vcverifier
     # -- tag of the image to be used
-    tag: 0.0.1
+    tag: 2.0.1
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- port to run the container at
@@ -69,8 +69,10 @@ deployment:
     tirAddress: http://my-tir.org
     # -- expiry of a login-session in seconds
     sessionExpiry: 30
-    # -- scope(e.g. credential-types) to be requested from a calling wallet
-    requestScope:
+  
+  # -- config repo configuration
+  configRepo:
+    configEndpoint: http://credentials-config:8080/
 
   # -- additional labels for the deployment, if required
   additionalLabels: {}
