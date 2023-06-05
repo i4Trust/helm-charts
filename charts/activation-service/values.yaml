@@ -44,7 +44,7 @@ deployment:
     # ref: https://hub.docker.com/r/i4trust/activation-service
     repository: i4trust/activation-service
     # -- tag of the image to be used
-    tag: 2.0.0
+    tag: 2.1.0
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
@@ -161,7 +161,7 @@ config:
     # -- Client certificate (PEM certificate chain)
     crt: <pdc-certs>
 
-  ## Configuration of SQLite database
+  ## Configuration of database
   db:
     # Use sqlite file database (make sure that the volume is writeable)
     #useFile:
@@ -178,7 +178,7 @@ config:
     # -- Enable SQL logging to stderr
     echo: true
 
-  ## Configuration of authorisation registry
+  ## Configuration of iSHARE authorisation registry
   ar:
     # -- Endpoint for token request
     token: "https://ar.packetdelivery.net/connect/token"
@@ -188,3 +188,29 @@ config:
     delegation: "https://ar.packetdelivery.net/delegation"
     # -- EORI of AR
     id: "EU.EORI.NLPACKETDEL"
+
+  ## Configuration specific to Trusted Issuer List /issuer endpoint
+  issuer:
+    # -- clientId parameter
+    clientId: "some-id"
+    # -- Provider DID
+    providerId: "did:key:some-key"
+    # -- URI of Trusted Issuers List service
+    tilUri: "http://til.internal"
+    # -- URI of verifier
+    verifierUri: "https://verifier.packetdelivery.net"
+    # -- samedevice flow path at verifier
+    samedevicePath: "/api/v1/samedevice"
+    # -- JWKS path at verifier
+    jwksPath: "/.well-known/jwks"
+    # -- Allowed algorithms for JWT signatures
+    algorithms:
+      - "ES256"
+    # Roles config
+    roles:
+      # -- Role for creating trusted issuer
+      createRole: "CREATE_ISSUER"
+      # -- Role for updating trusted issuer
+      updateRole: "UPDATE_ISSUER"
+      # -- Role for deleting trusted issuer
+      deleteRole: "DELETE_ISSUER"
