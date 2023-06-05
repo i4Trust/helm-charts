@@ -30,7 +30,7 @@ spec:
       {{- end }}
     spec: 
       serviceAccountName: {{ include "vcverifier.serviceAccountName" . }}
-      {{ .Values.deployment.initContainers }}
+      {{- if .Values.deployment.initContainers }}
       initContainers:
         {{- with .Values.deployment.initContainers }}
         {{- toYaml . | nindent 8 }}
