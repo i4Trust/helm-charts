@@ -30,6 +30,17 @@ spec:
       {{- end }}
     spec: 
       serviceAccountName: {{ include "pdc-portal.serviceAccountName" . }}
+      {{- if .Values.ccs.endpoint}}
+      initContainers:
+        - name: register-credential-config
+          image: busybox:1.28
+          command: [ "/bin/sh", "-c", "/bin/init.sh"]
+          volumeMounts:
+            - name: ccs-init-volume
+              mountPath: /bin/init.sh
+              readOnly: true
+              subPath: init.sh
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
@@ -77,6 +88,11 @@ spec:
             items:
               - key: pdc-portal.yml
                 path: pdc-portal.yml
+        {{- if .Values.ccs.endpoint}}
+        - name: ccs-init-volume
+          configMap:
+            name: {{ include "pdc-portal.fullname" . }}-ccs
+        {{- end }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

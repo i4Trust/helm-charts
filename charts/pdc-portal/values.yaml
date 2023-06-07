@@ -141,6 +141,22 @@ debug:
 # Use values from existing secret as ENVs
 #existingSecretEnvs: ""
 
+# Configuration for the Credential Config Service initiation
+ccs:
+  # -- Endpoint of the CCS
+  #endpoint: "http://credentials-config-service:8080/"
+  # -- Id of the service
+  id: "pdc"
+  # -- Credential configuration to be registered
+  credentials:
+    - type: "VerifiableCredential"
+      trustedParticipantsLists: [
+        "https://tir.fiware.dev"
+      ]
+      trustedIssuersLists: [
+        "https://til.fiware.dev"
+      ]
+
 # PDC Portal configuration
 config:
   # -- Title of application
