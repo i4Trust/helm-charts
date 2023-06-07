@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ![AppVersion: 2.1.0](https://img.shields.io/badge/AppVersion-2.1.0-informational?style=flat-square)
+![Version: 2.2.0](https://img.shields.io/badge/Version-2.2.0-informational?style=flat-square) ![AppVersion: 2.1.0](https://img.shields.io/badge/AppVersion-2.1.0-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry or to create entries at a trusted issuers list
 
@@ -28,6 +28,8 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
+| ccs.credentials | list | `[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}]` | Credential configuration to be registered |
+| ccs.id | string | `"pdc-activation-service"` | Id of the service |
 | config.ar.delegation | string | `"https://ar.packetdelivery.net/delegation"` | Endpoint for delegation requests |
 | config.ar.id | string | `"EU.EORI.NLPACKETDEL"` | EORI of AR |
 | config.ar.policy | string | `"https://ar.packetdelivery.net/policy"` | Endpoint for create policy requests |
@@ -39,7 +41,7 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | config.db.modTracking | bool | `false` | Enable tracking of modifications |
 | config.db.useMemory | bool | `true` | Use sqlite in-memory database |
 | config.issuer.algorithms | list | `["ES256"]` | Allowed algorithms for JWT signatures |
-| config.issuer.clientId | string | `"some-id"` | clientId parameter |
+| config.issuer.clientId | string | `"pdc-activation-service"` | clientId parameter |
 | config.issuer.jwksPath | string | `"/.well-known/jwks"` | JWKS path at verifier |
 | config.issuer.providerId | string | `"did:key:some-key"` | Provider DID |
 | config.issuer.roles.createRole | string | `"CREATE_ISSUER"` | Role for creating trusted issuer |
