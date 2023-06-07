@@ -38,7 +38,6 @@ spec:
           volumeMounts:
             - name: ccs-init-volume
               mountPath: /bin/init.sh
-              readOnly: true
               subPath: init.sh
       {{- end }}
       containers:
@@ -92,6 +91,7 @@ spec:
         - name: ccs-init-volume
           configMap:
             name: {{ include "pdc-portal.fullname" . }}-ccs
+            defaultMode: 0744
         {{- end }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
