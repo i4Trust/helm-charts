@@ -378,6 +378,27 @@ entries:
   pdc-portal:
   - apiVersion: v1
     appVersion: 2.0.0
+    created: "2023-06-07T08:23:48.523539334Z"
+    description: A Helm chart for running the Packet Delivery Portal application on
+      kubernetes.
+    digest: fa66ad70f7ac337140530ba08b729bb6d2e226874c3cff7acb3d2407b6daa7bf
+    home: https://github.com/i4trust/pdc-portal
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: pdc-portal
+    sources:
+    - https://github.com/i4trust/pdc-portal
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/pdc-portal-2.2.5/pdc-portal-2.2.5.tgz
+    version: 2.2.5
+  - apiVersion: v1
+    appVersion: 2.0.0
     created: "2023-06-07T08:17:47.654279175Z"
     description: A Helm chart for running the Packet Delivery Portal application on
       kubernetes.
