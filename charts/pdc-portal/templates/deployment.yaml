@@ -33,7 +33,7 @@ spec:
       {{- if .Values.ccs.endpoint}}
       initContainers:
         - name: register-credential-config
-          image: busybox:1.28
+          image: quay.io/curl/curl:8.1.2
           command: [ "/bin/sh", "-c", "/bin/init.sh"]
           volumeMounts:
             - name: ccs-init-volume
