@@ -44,7 +44,7 @@ deployment:
     # ref: https://hub.docker.com/r/i4trust/activation-service
     repository: i4trust/activation-service
     # -- tag of the image to be used
-    tag: 2.1.0
+    tag: 2.2.0
     # -- specification of the image pull policy
     pullPolicy: IfNotPresent
   # -- additional labels for the deployment, if required
@@ -193,6 +193,27 @@ config:
     modTracking: false
     # -- Enable SQL logging to stderr
     echo: true
+
+  # Configuration for additional API keys to protect certain endpoints
+  apikeys:
+    # Config for iSHARE flow
+    ishare:
+      # -- API-Key Header name for iSHARE flow
+      headerName: "AS-API-KEY"
+      # -- API key for iSHARE flow (auto-generated if left empty)
+      apiKey: ""
+      # -- Enable API-Key requirement for iSHARE flow /token endpoint (API key will be required)
+      enabledToken: true
+      # -- Enable API-Key requirement for iSHARE flow /createpolicy endpoint (API key will be required)
+      enabledCreatePolicy: false
+    # Config for Trusted-Issuers-List flow
+    issuer:
+      # -- API-Key Header name for Trusted-Issuers-List flow
+      headerName: "AS-API-KEY"
+      # -- API key for Trusted-Issuers-List flow (auto-generated if left empty)
+      apiKey: ""
+      # -- Enable API-Key requirement for Trusted-Issuers-List flow /issuer endpoint (API key will be required)
+      enabledIssuer: true
 
   ## Configuration of iSHARE authorisation registry
   ar:
