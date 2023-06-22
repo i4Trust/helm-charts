@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 2.2.0](https://img.shields.io/badge/Version-2.2.0-informational?style=flat-square) ![AppVersion: 2.1.0](https://img.shields.io/badge/AppVersion-2.1.0-informational?style=flat-square)
+![Version: 2.2.1](https://img.shields.io/badge/Version-2.2.1-informational?style=flat-square) ![AppVersion: 2.2.0](https://img.shields.io/badge/AppVersion-2.2.0-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry or to create entries at a trusted issuers list
 
@@ -30,6 +30,13 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
 | ccs.credentials | list | `[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}]` | Credential configuration to be registered |
 | ccs.id | string | `"pdc-activation-service"` | Id of the service |
+| config.apikeys.ishare.apiKey | string | `""` | API key for iSHARE flow (auto-generated if left empty) |
+| config.apikeys.ishare.enabledCreatePolicy | bool | `false` | Enable API-Key requirement for iSHARE flow /createpolicy endpoint (API key will be required) |
+| config.apikeys.ishare.enabledToken | bool | `true` | Enable API-Key requirement for iSHARE flow /token endpoint (API key will be required) |
+| config.apikeys.ishare.headerName | string | `"AS-API-KEY"` | API-Key Header name for iSHARE flow |
+| config.apikeys.issuer.apiKey | string | `""` | API key for Trusted-Issuers-List flow (auto-generated if left empty) |
+| config.apikeys.issuer.enabledIssuer | bool | `true` | Enable API-Key requirement for Trusted-Issuers-List flow /issuer endpoint (API key will be required) |
+| config.apikeys.issuer.headerName | string | `"AS-API-KEY"` | API-Key Header name for Trusted-Issuers-List flow |
 | config.ar.delegation | string | `"https://ar.packetdelivery.net/delegation"` | Endpoint for delegation requests |
 | config.ar.id | string | `"EU.EORI.NLPACKETDEL"` | EORI of AR |
 | config.ar.policy | string | `"https://ar.packetdelivery.net/policy"` | Endpoint for create policy requests |
