@@ -30,6 +30,10 @@ spec:
       {{- end }}
     spec: 
       serviceAccountName: {{ include "vcwaltid.serviceAccountName" . }}
+      {{- if .Values.initContainers }}
+      initContainers:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
