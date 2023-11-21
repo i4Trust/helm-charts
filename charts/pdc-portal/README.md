@@ -1,6 +1,6 @@
 # pdc-portal
 
-![Version: 2.2.7](https://img.shields.io/badge/Version-2.2.7-informational?style=flat-square) ![AppVersion: 2.0.0](https://img.shields.io/badge/AppVersion-2.0.0-informational?style=flat-square)
+![Version: 2.3.0](https://img.shields.io/badge/Version-2.3.0-informational?style=flat-square) ![AppVersion: 2.0.0](https://img.shields.io/badge/AppVersion-2.0.0-informational?style=flat-square)
 
 A Helm chart for running the Packet Delivery Portal application on kubernetes.
 
@@ -24,8 +24,9 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
-| ccs.credentials | list | `[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}]` | Credential configuration to be registered |
+| ccs.defaultScope | string | `"defaultScope"` | Default scope to be used from scopes below, if none is provided |
 | ccs.id | string | `"pdc"` | Id of the service |
+| ccs.scopes | object | `{"defaultScope":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableDefaultCredential"}],"portalAccess":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}]}` | Credential configurations for particular scopes |
 | config.cb.endpoint | string | `"https://localhost/ngsi-ld/v1"` | Endpoint of (API-Umbrella protected) NGSI-LD API |
 | config.client.crt | string | `"<pdc-certs>"` | Client certificate (PEM certificate chain) |
 | config.client.id | string | `"EU.EORI.NLPACKETDEL"` | Client ID |
