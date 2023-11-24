@@ -1,6 +1,6 @@
 # activation-service
 
-![Version: 2.2.2](https://img.shields.io/badge/Version-2.2.2-informational?style=flat-square) ![AppVersion: 2.2.0](https://img.shields.io/badge/AppVersion-2.2.0-informational?style=flat-square)
+![Version: 2.3.0](https://img.shields.io/badge/Version-2.3.0-informational?style=flat-square) ![AppVersion: 2.2.0](https://img.shields.io/badge/AppVersion-2.2.0-informational?style=flat-square)
 
 A Helm chart for running the i4Trust activation service for creating policies at an iSHARE authorisation registry or to create entries at a trusted issuers list
 
@@ -28,8 +28,9 @@ A Helm chart for running the i4Trust activation service for creating policies at
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
-| ccs.credentials | list | `[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}]` | Credential configuration to be registered |
+| ccs.defaultScope | string | `"defaultScope"` | Default scope to be used from scopes below, if none is provided |
 | ccs.id | string | `"pdc-activation-service"` | Id of the service |
+| ccs.scopes | object | `{"asWrite":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}],"defaultScope":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableDefaultCredential"}]}` | Credential configurations for particular scopes |
 | config.apikeys.ishare.apiKey | string | `""` | API key for iSHARE flow (auto-generated if left empty) |
 | config.apikeys.ishare.enabledCreatePolicy | bool | `false` | Enable API-Key requirement for iSHARE flow /createpolicy endpoint (API key will be required) |
 | config.apikeys.ishare.enabledToken | bool | `true` | Enable API-Key requirement for iSHARE flow /token endpoint (API key will be required) |
