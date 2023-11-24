@@ -3,6 +3,28 @@ entries:
   activation-service:
   - apiVersion: v1
     appVersion: 2.2.0
+    created: "2023-11-24T09:41:27.534106551Z"
+    description: A Helm chart for running the i4Trust activation service for creating
+      policies at an iSHARE authorisation registry or to create entries at a trusted
+      issuers list
+    digest: e785ae9123a34a64f5afcd9403d1568ccaf228df6b330a3bab504b6b7664c14c
+    home: https://github.com/i4trust/activation-service
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: activation-service
+    sources:
+    - https://github.com/i4trust/activation-service
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/activation-service-2.3.0/activation-service-2.3.0.tgz
+    version: 2.3.0
+  - apiVersion: v1
+    appVersion: 2.2.0
     created: "2023-10-17T13:32:49.099782505Z"
     description: A Helm chart for running the i4Trust activation service for creating
       policies at an iSHARE authorisation registry or to create entries at a trusted
@@ -442,6 +464,27 @@ entries:
     - https://github.com/i4Trust/helm-charts/releases/download/mvf-1.1.0/mvf-1.1.0.tgz
     version: 1.1.0
   pdc-portal:
+  - apiVersion: v1
+    appVersion: 2.0.0
+    created: "2023-11-24T09:41:27.704517452Z"
+    description: A Helm chart for running the Packet Delivery Portal application on
+      kubernetes.
+    digest: cc673b52e954c36e3f8c2556837571eba660d8d2c2b2646fba7a9db0d53493ed
+    home: https://github.com/i4trust/pdc-portal
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: pdc-portal
+    sources:
+    - https://github.com/i4trust/pdc-portal
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/pdc-portal-2.3.0/pdc-portal-2.3.0.tgz
+    version: 2.3.0
   - apiVersion: v1
     appVersion: 2.0.0
     created: "2023-10-18T14:04:29.534454407Z"
