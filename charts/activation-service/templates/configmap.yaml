@@ -25,6 +25,9 @@ data:
       -H 'Content-Type: application/json' \
       -d '{
       "id": "{{ .Values.ccs.id }}",
-      "credentials": {{- toJson .Values.ccs.credentials }}
+      "defaultOidcScope": "{{ .Values.ccs.defaultOidcScope }}",
+      {{- if .Values.ccs.oidcScopes -}}
+      "oidcScopes": {{- toJson .Values.ccs.oidcScopes }}
+      {{- end }}
     }'
 {{- end }}
