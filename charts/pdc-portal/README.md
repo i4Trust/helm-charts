@@ -24,9 +24,9 @@ A Helm chart for running the Packet Delivery Portal application on kubernetes.
 | autoscaling.maxReplicas | int | `10` | maximum number of running pods |
 | autoscaling.metrics | list | `[]` | metrics to react on |
 | autoscaling.minReplicas | int | `1` | minimum number of running pods |
-| ccs.defaultScope | string | `"defaultScope"` | Default scope to be used from scopes below, if none is provided |
+| ccs.defaultOidcScope | string | `"defaultOidcScope"` | Default scope to be used from scopes below, if none is provided |
 | ccs.id | string | `"pdc"` | Id of the service |
-| ccs.scopes | object | `{"defaultScope":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableDefaultCredential"}],"portalAccess":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}]}` | Credential configurations for particular scopes |
+| ccs.oidcScopes | object | `{"defaultScope":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableDefaultCredential"}],"portalAccess":[{"trustedIssuersLists":["https://til.fiware.dev"],"trustedParticipantsLists":["https://tir.fiware.dev"],"type":"VerifiableCredential"}]}` | Credential configurations for particular scopes |
 | config.cb.endpoint | string | `"https://localhost/ngsi-ld/v1"` | Endpoint of (API-Umbrella protected) NGSI-LD API |
 | config.client.crt | string | `"<pdc-certs>"` | Client certificate (PEM certificate chain) |
 | config.client.id | string | `"EU.EORI.NLPACKETDEL"` | Client ID |
