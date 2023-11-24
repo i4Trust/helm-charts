@@ -148,9 +148,9 @@ ccs:
   # -- Id of the service
   id: "pdc"
   # -- Default scope to be used from scopes below, if none is provided
-  defaultScope: "defaultScope"
+  defaultOidcScope: "defaultOidcScope"
   # -- Credential configurations for particular scopes
-  scopes:
+  oidcScopes:
     defaultScope:
       - type: "VerifiableDefaultCredential"
         trustedParticipantsLists: [
