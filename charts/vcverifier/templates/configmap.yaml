@@ -10,7 +10,11 @@ data:
       port: {{ .Values.deployment.port }}
       staticDir: {{ .Values.deployment.server.staticDir | quote }}
       templateDir: {{ .Values.deployment.server.templateDir | quote }}
-
+    m2m:
+      authEnabled: {{ .Values.deployment.m2m.authEnabled }}
+      keyPath: {{ .Values.deployment.m2m.keyPath }}
+      credentialPath: {{ .Values.deployment.m2m.credentialPath }}
+      verificationMethod: {{ .Values.deployment.m2m.verificationMethod }}  
     logging:
       level: {{ .Values.deployment.logging.level | quote }}
       jsonLogging: {{ .Values.deployment.logging.jsonLogging | quote }}
