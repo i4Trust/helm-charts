@@ -57,6 +57,12 @@ deployment:
     pathsToSkip: 
       - /metrics
       - /health
+  # -- m2m related config
+  m2m:
+    authEnabled: false
+    keyPath: /opt/did/secret/tls.key
+    credentialPath: /opt/credential/credential.json
+    verificationMethod: did:example:key#1
   # -- ssikit related configuration
   ssikit:
     # -- address of the auditor url
