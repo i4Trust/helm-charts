@@ -32,7 +32,7 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | deployment.logging.level | string | `"WARN"` | the log level, can be DEBUG, INFO, WARN, ERROR |
 | deployment.logging.logRequests | bool | `true` | should requests be logged |
 | deployment.logging.pathsToSkip | list | `["/metrics","/health"]` | list of paths to be excluded from the request logging |
-| deployment.m2m | object | `{"authEnabled":false,"credentialPath":"/opt/credential/credential.json","keyPath":"/opt/did/secret/tls.key","verificationMethod":"did:example:key#1"}` | m2m related config |
+| deployment.m2m | object | `{"authEnabled":false,"clientId":"tir-res","credentialPath":"/opt/credential/credential.json","keyPath":"/opt/did/secret/tls.key","verificationMethod":"did:example:key#1"}` | m2m related config |
 | deployment.nodeSelector | object | `{}` | selector template ref: https://kubernetes.io/docs/user-guide/node-selection/ |
 | deployment.port | int | `3000` | port to run the container at |
 | deployment.readinessProbe.initialDelaySeconds | int | `4` |  |
