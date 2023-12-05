@@ -7,6 +7,7 @@ metadata:
 data:
   server.yaml: |-
     server:
+      host: {{ .Values.deployment.server.host | quote }}
       port: {{ .Values.deployment.port }}
       staticDir: {{ .Values.deployment.server.staticDir | quote }}
       templateDir: {{ .Values.deployment.server.templateDir | quote }}
