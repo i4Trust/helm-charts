@@ -1,6 +1,6 @@
 # vcverifier
 
-![Version: 1.0.13](https://img.shields.io/badge/Version-1.0.13-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
+![Version: 1.0.14](https://img.shields.io/badge/Version-1.0.14-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
 
 A Helm chart for running the i4Trust DSBA VCVerifier.
 
@@ -41,7 +41,8 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | deployment.readinessProbe.timeoutSeconds | int | `30` |  |
 | deployment.replicaCount | int | `1` | initial number of target replications, can be different if autoscaling is enabled |
 | deployment.revisionHistoryLimit | int | `3` | number of old replicas to be retained |
-| deployment.server | object | `{"staticDir":"views/static","templateDir":"views/"}` | configuration for server |
+| deployment.server | object | `{"host":"my-verifier.org","staticDir":"views/static","templateDir":"views/"}` | configuration for server |
+| deployment.server.host | string | `"my-verifier.org"` | host of the verifier |
 | deployment.server.staticDir | string | `"views/static"` | directory to be used for static content, f.e. images referenced from the templates |
 | deployment.server.templateDir | string | `"views/"` | directory to be used for retrieving the templates. |
 | deployment.ssikit | object | `{"auditorUrl":"https://auditor.walt"}` | ssikit related configuration |
