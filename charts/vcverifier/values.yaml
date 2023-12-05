@@ -65,6 +65,7 @@ deployment:
     keyPath: /opt/did/secret/tls.key
     credentialPath: /opt/credential/credential.json
     verificationMethod: did:example:key#1
+    clientId: tir-res
   # -- ssikit related configuration
   ssikit:
     # -- address of the auditor url
