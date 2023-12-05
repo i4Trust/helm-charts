@@ -16,6 +16,7 @@ data:
       keyPath: {{ .Values.deployment.m2m.keyPath }}
       credentialPath: {{ .Values.deployment.m2m.credentialPath }}
       verificationMethod: {{ .Values.deployment.m2m.verificationMethod }}  
+      clientId: {{ .Values.deployment.m2m.clientId }}  
     logging:
       level: {{ .Values.deployment.logging.level | quote }}
       jsonLogging: {{ .Values.deployment.logging.jsonLogging | quote }}
