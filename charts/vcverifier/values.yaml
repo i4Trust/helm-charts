@@ -41,7 +41,7 @@ deployment:
   port: 3000
   # -- configuration for server
   server: 
-    + -- host of the verifier
+    # -- host of the verifier
     host: my-verifier.org
     # -- directory to be used for static content, f.e. images referenced from the templates
     staticDir: views/static
