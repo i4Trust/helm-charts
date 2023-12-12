@@ -77,6 +77,10 @@ spec:
             - mountPath: /templates/
               name: template-volume
             {{- end }}
+            {{- if .Values.static.enabled -}}
+            - mountPath: /static/
+              name: static-volume
+            {{- end }}
       volumes:
       - name: config-volume
         configMap:
@@ -88,6 +92,11 @@ spec:
       {{- end }}
       {{- if .Values.templates }}
       - name: template-volume
+        emptyDir:
+          sizeLimit: 500Mi
+      {{- end }}
+      {{- if .Values.static.enabled -}}
+      - name: static-volume
         emptyDir:
           sizeLimit: 500Mi
       {{- end }}
