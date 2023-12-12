@@ -176,3 +176,6 @@ templates:
   #         <h3>Scan the qr to login</h3>
   #         <img src="data:{{.qrcode}}" alt="The qr should be here.">
   #   </main>
+
+static: 
+  enabled: false
