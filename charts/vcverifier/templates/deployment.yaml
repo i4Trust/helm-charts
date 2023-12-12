@@ -76,16 +76,16 @@ spec:
             {{- if .Values.templates }}
             - mountPath: /templates/
               name: template-volume
-            {{- end }}
+            {{- end -}}
             {{- if .Values.static.enabled }}
             - mountPath: /static/
               name: static-volume
-            {{- end }}
+            {{- end -}}
             {{- if .Values.deployment.additionalVolumeMounts }}
             {{- with .Values.deployment.additionalVolumeMounts }}
             {{- toYaml . | nindent 12 }}
-            {{- end }}
-            {{- end }}
+            {{- end -}}
+            {{- end -}}
       volumes:
       - name: config-volume
         configMap:
