@@ -81,6 +81,11 @@ spec:
             - mountPath: /static/
               name: static-volume
             {{- end }}
+            {{- if .Values.deployment.additionalVolumeMounts }}
+            {{- with .Values.deployment.additionalVolumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- end }}
       volumes:
       - name: config-volume
         configMap:

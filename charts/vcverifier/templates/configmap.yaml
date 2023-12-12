@@ -7,10 +7,16 @@ metadata:
 data:
   server.yaml: |-
     server:
+      host: {{ .Values.deployment.server.host | quote }}
       port: {{ .Values.deployment.port }}
       staticDir: {{ .Values.deployment.server.staticDir | quote }}
       templateDir: {{ .Values.deployment.server.templateDir | quote }}
-
+    m2m:
+      authEnabled: {{ .Values.deployment.m2m.authEnabled }}
+      keyPath: {{ .Values.deployment.m2m.keyPath }}
+      credentialPath: {{ .Values.deployment.m2m.credentialPath }}
+      verificationMethod: {{ .Values.deployment.m2m.verificationMethod }}  
+      clientId: {{ .Values.deployment.m2m.clientId }}  
     logging:
       level: {{ .Values.deployment.logging.level | quote }}
       jsonLogging: {{ .Values.deployment.logging.jsonLogging | quote }}

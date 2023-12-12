@@ -41,6 +41,8 @@ deployment:
   port: 3000
   # -- configuration for server
   server: 
+    # -- host of the verifier
+    host: my-verifier.org
     # -- directory to be used for static content, f.e. images referenced from the templates
     staticDir: views/static
     # -- directory to be used for retrieving the templates.
@@ -57,6 +59,13 @@ deployment:
     pathsToSkip: 
       - /metrics
       - /health
+  # -- m2m related config
+  m2m:
+    authEnabled: false
+    keyPath: /opt/did/secret/tls.key
+    credentialPath: /opt/credential/credential.json
+    verificationMethod: did:example:key#1
+    clientId: tir-res
   # -- ssikit related configuration
   ssikit:
     # -- address of the auditor url
