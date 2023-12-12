@@ -77,7 +77,7 @@ spec:
             - mountPath: /templates/
               name: template-volume
             {{- end }}
-            {{- if .Values.static.enabled -}}
+            {{- if .Values.static.enabled }}
             - mountPath: /static/
               name: static-volume
             {{- end }}
