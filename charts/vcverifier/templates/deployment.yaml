@@ -100,7 +100,7 @@ spec:
         emptyDir:
           sizeLimit: 500Mi
       {{- end -}}
-      {{- if .Values.static.enabled -}}
+      {{- if .Values.static.enabled }}
       - name: static-volume
         emptyDir:
           sizeLimit: 500Mi
