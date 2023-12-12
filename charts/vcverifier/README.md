@@ -1,6 +1,6 @@
 # vcverifier
 
-![Version: 1.0.15](https://img.shields.io/badge/Version-1.0.15-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
+![Version: 1.0.20](https://img.shields.io/badge/Version-1.0.20-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
 
 A Helm chart for running the i4Trust DSBA VCVerifier.
 
@@ -71,6 +71,7 @@ A Helm chart for running the i4Trust DSBA VCVerifier.
 | service.type | string | `"ClusterIP"` | service type |
 | serviceAccount | object | `{"create":false}` | if a specific service account should be used, it can be configured here ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ |
 | serviceAccount.create | bool | `false` | specifies if the account should be created |
+| static.enabled | bool | `false` |  |
 | templates | string | `nil` | if the style of the login-page should be altered, templates can be provided here. |
 
 ----------------------------------------------
