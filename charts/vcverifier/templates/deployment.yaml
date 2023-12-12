@@ -76,16 +76,16 @@ spec:
             {{- if .Values.templates }}
             - mountPath: /templates/
               name: template-volume
-            {{- end -}}
+            {{- end }}
             {{- if .Values.static.enabled }}
             - mountPath: /static/
               name: static-volume
-            {{- end -}}
+            {{- end }}
             {{- if .Values.deployment.additionalVolumeMounts }}
             {{- with .Values.deployment.additionalVolumeMounts }}
             {{- toYaml . | nindent 12 }}
-            {{- end -}}
-            {{- end -}}
+            {{- end }}
+            {{- end }}
       volumes:
       - name: config-volume
         configMap:
@@ -93,27 +93,27 @@ spec:
       {{- if .Values.deployment.additionalVolumes }}
       {{- with .Values.deployment.additionalVolumes }}
       {{- toYaml . | nindent 6 }}
-      {{- end -}}
-      {{- end -}}
+      {{- end }}
+      {{- end }}
       {{- if .Values.templates }}
       - name: template-volume
         emptyDir:
           sizeLimit: 500Mi
-      {{- end -}}
+      {{- end }}
       {{- if .Values.static.enabled }}
       - name: static-volume
         emptyDir:
           sizeLimit: 500Mi
-      {{- end -}}
+      {{- end }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
-      {{- end -}}
+      {{- end }}
       {{- with .Values.deployment.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
-      {{- end -}}
+      {{- end }}
       {{- with .Values.deployment.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
-      {{- end -}}
+      {{- end }}
