@@ -97,8 +97,8 @@ spec:
       {{- end }}
       {{- if .Values.templates }}
       - name: template-volume
-        emptyDir:
-          sizeLimit: 500Mi
+        configMap:
+          name: {{ include "vcverifier.fullname" . }}-template
       {{- end }}
       {{- if .Values.static.enabled }}
       - name: static-volume
