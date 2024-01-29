@@ -3,6 +3,28 @@ entries:
   activation-service:
   - apiVersion: v1
     appVersion: 2.2.0
+    created: "2024-01-29T07:40:25.702831104Z"
+    description: A Helm chart for running the i4Trust activation service for creating
+      policies at an iSHARE authorisation registry or to create entries at a trusted
+      issuers list
+    digest: 750ab6a74205063052cda364126c1243ed67283a8032dff273ee4af20d654750
+    home: https://github.com/i4trust/activation-service
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: activation-service
+    sources:
+    - https://github.com/i4trust/activation-service
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/activation-service-2.3.1/activation-service-2.3.1.tgz
+    version: 2.3.1
+  - apiVersion: v1
+    appVersion: 2.2.0
     created: "2023-11-24T09:41:27.534106551Z"
     description: A Helm chart for running the i4Trust activation service for creating
       policies at an iSHARE authorisation registry or to create entries at a trusted
@@ -464,6 +486,27 @@ entries:
     - https://github.com/i4Trust/helm-charts/releases/download/mvf-1.1.0/mvf-1.1.0.tgz
     version: 1.1.0
   pdc-portal:
+  - apiVersion: v1
+    appVersion: 2.0.0
+    created: "2024-01-29T07:40:25.817609255Z"
+    description: A Helm chart for running the Packet Delivery Portal application on
+      kubernetes.
+    digest: c547b0be51e97d9a902ef1721acf798ccfc66271a7c70088243f62095ef51296
+    home: https://github.com/i4trust/pdc-portal
+    icon: https://pbs.twimg.com/profile_images/1337350246452633601/bqxdPuHU.jpg
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - proof of concept
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: dwendland
+    name: pdc-portal
+    sources:
+    - https://github.com/i4trust/pdc-portal
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/pdc-portal-2.3.2/pdc-portal-2.3.2.tgz
+    version: 2.3.2
   - apiVersion: v1
     appVersion: 2.0.0
     created: "2023-11-24T09:41:27.704517452Z"
@@ -946,6 +989,25 @@ entries:
     - https://github.com/i4Trust/helm-charts/releases/download/vcbackend-0.0.1/vcbackend-0.0.1.tgz
     version: 0.0.1
   vcverifier:
+  - apiVersion: v1
+    appVersion: 2.0.1
+    created: "2024-01-29T07:40:25.94970815Z"
+    description: A Helm chart for running the i4Trust DSBA VCVerifier.
+    digest: 6427c12bca4854d1f740d1f20cbf9080082b5c451d9e50dd2559d7cd4aff638b
+    home: https://github.com/fiware/vcverifier
+    keywords:
+    - i4Trust
+    - experimentation framework
+    - FIWARE
+    - proof of concept
+    - verifiable credentials
+    maintainers:
+    - email: stefan.wiedemann@fiware.org
+      name: wistefan
+    name: vcverifier
+    urls:
+    - https://github.com/i4Trust/helm-charts/releases/download/vcverifier-1.0.23/vcverifier-1.0.23.tgz
+    version: 1.0.23
   - apiVersion: v1
     appVersion: 2.0.1
     created: "2023-12-12T10:02:22.711467486Z"
